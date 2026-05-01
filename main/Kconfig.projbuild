@@ -1,0 +1,17 @@
+menu "PINS CONFIG"
+    config BOTTOM_RIGHT
+        int "bottom right button pin"
+        default 13
+    
+    config BOTTOM_LEFT
+        int "bottom left button pin"
+        default 12
+        
+    config TOP_RIGHT
+        int "top right pin"
+        default 14
+        
+    config TOP_LEFT
+        int "top right pin"
+        default 27
+endmenu

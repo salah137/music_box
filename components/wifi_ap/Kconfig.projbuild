@@ -1,0 +1,50 @@
+menu "AP configuration"
+    config ESP_WIFI_SSID
+        string "WIFI SSID"
+        default "esp_wifi"
+        help
+            SSID
+
+    config ESP_WIFI_PASSWORD
+        string "WIFI Password"
+        default "esp230005"
+        help
+            Wifi Password
+
+    config ESP_WIFI_CHANNEL
+        int "WIFI Channel"
+        range 1 13
+        default 1
+        help
+            Wifi Channel
+
+    config MAX_STA_CONN
+        int "Maximal sta connection"
+        default 4
+        help
+            Maximal sta connection
+
+        config ESP_GTK_REKEYING_ENABLE
+            bool "Enable GTK Rekeying"
+            default y
+            help
+                Flag to enable GTK rekeying.
+
+        config ESP_GTK_REKEY_INTERVAL
+            int "GTK rekey interval"
+            depends on ESP_GTK_REKEYING_ENABLE
+            range 60 65535
+            default 600
+            help
+                GTK rekeying interval in seconds.
+endmenu
+
+menu "LEDS"
+    config WIFI_CONNECTED_LED
+        int "WIFI_CONNECTED_LED"
+        default 5
+
+    config UPLOADING_LED
+        int "UPLOADING_LED"
+        default 6
+endmenu
