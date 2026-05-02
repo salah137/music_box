@@ -1,5 +1,5 @@
-#include "esp_https_server.h"
 #include "string.h"
+#include "esp_http_server.h"
 #include "esp_log.h"
 #include "uri_handlers/check/check.h"
 #include "uri_handlers/upload/upload.h"
@@ -23,6 +23,7 @@ static const httpd_uri_t upload_uri = {
 
 httpd_handle_t start_https_server(void)
 {
+    /* 
     ESP_LOGI(TAG, "starting the https ..........");
     httpd_ssl_config_t config = HTTPD_SSL_CONFIG_DEFAULT();
 
@@ -35,10 +36,15 @@ httpd_handle_t start_https_server(void)
     config.servercert_len = servercert_pem_end - servercert_pem_start;
     config.prvtkey_pem = prvtkey_pem_start;
     config.prvtkey_len = prvtkey_pem_end - prvtkey_pem_start;
+    */
+
+    httpd_config_t config = HTTPD_DEFAULT_CONFIG();
+        config.server_port = 80;
+    
 
     httpd_handle_t server = NULL;
 
-    esp_err_t ret = httpd_ssl_start(&server, &config);
+    esp_err_t ret = httpd_start(&server,&config);
 
     if (ret == ESP_OK)
     {

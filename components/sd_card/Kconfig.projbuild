@@ -1,0 +1,17 @@
+menu "SD CARD SPI"
+    config MISO
+        int "MISO PIN FOR SD CARD ADAPTER"
+        default 19
+        
+    config MOSI
+        int "MOSI PIN FOR SD CARD ADAPTER"
+        default 23
+
+    config CLK
+        int "SCLK PIN FOR SD CARD ADAPTER"
+        default 18
+
+    config CS 
+        int "CS PIN FOR SD CARD ADAPTER"
+        default 25
+endmenu

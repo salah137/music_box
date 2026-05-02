@@ -16,7 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "init_sd_card.h"
 /* ---------------------------------------------------------------------------
  * Constants
  * -------------------------------------------------------------------------*/
@@ -408,6 +408,14 @@ static void wifi_task(void *args) {
   }
 }
 
+/* SD Card task */
+static void sdcard_task(void* args){
+    init_sd_card();
+    while (1) {
+        vTaskDelay(pdMS_TO_TICKS(10));
+    }
+}
+
 /* ---------------------------------------------------------------------------
  * Static data initialisation
  * -------------------------------------------------------------------------*/
@@ -432,6 +440,8 @@ void app_main(void) {
 
   xTaskCreatePinnedToCore(bt_task, "bt_task", 4096, NULL, 6, NULL, 0);
   xTaskCreatePinnedToCore(wifi_task, "wifi_task", 4096, NULL, 5, NULL, 1);
-  xTaskCreate(draw_ui_task, "draw_ui", 4096, NULL, 5, NULL);
-  xTaskCreate(handle_input, "handle_input", 4096, NULL, 4, NULL);
+  xTaskCreate(draw_ui_task, "draw_ui", 2048, NULL, 5, NULL);
+  xTaskCreate(handle_input, "handle_input", 2048, NULL, 4, NULL);
+  xTaskCreate(sdcard_task, "sd_card", 4096, NULL, 3, NULL);
+  
 }
