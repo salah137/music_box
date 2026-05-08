@@ -1,6 +1,7 @@
 #include "drawing.h"
 #include "esp_log.h"
 #include "local_types.h"
+#include <string.h>
 
 void draw_music_label(char *name, int index, int pinned) {
   ssd1306_draw_horizental_line(5, 16 * (1 + index), 128, 14, pinned ? 1 : 0);
@@ -8,12 +9,7 @@ void draw_music_label(char *name, int index, int pinned) {
   ssd1306_draw_horizental_line(5, (17 * (1 + index)) + 10, 128, 1, 1);
 }
 
-void draw_select_music(music_t *music, int start_index, int max, int pinned) {
-  for (int i = start_index; i < 3 + start_index; i++) {
 
-    draw_music_label(music[i].name, i - start_index, (int)(pinned == i));
-  }
-}
 
 static void continuing_icon() {
   ssd1306_draw_verticale_line(40, 25, 30, 15, 1);
@@ -25,6 +21,12 @@ static void paused_icon() {
     ssd1306_draw_verticale_line(50 + i * 1, 25 + i / 2, 30 - 1 * i, 1, 1);
   }
 }
+void draw_select_music(music_t **music, int start_index, int max, int pinned) {
+  for (int i = start_index; i < 3 + start_index && i < max; i++) {  // ← add && i < max
+    draw_music_label(music[i]->name + strlen("/sdcard/"), i - start_index, (int)(pinned == i));
+  }
+}
+
 
 void draw_music_control(char *name, float progress, int duration, bool stopped,
                         bool changed_volume, int volume_level) {

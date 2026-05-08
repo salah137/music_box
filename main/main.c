@@ -9,6 +9,7 @@
 #include "i2c_connection.h"
 #include "init_bt.h"
 #include "init_fs.h"
+#include "init_sd_card.h"
 #include "local_types.h"
 #include "portmacro.h"
 #include "reusable/reusable.h"
@@ -16,14 +17,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "init_sd_card.h"
 /* ---------------------------------------------------------------------------
  * Constants
  * -------------------------------------------------------------------------*/
 #define SDA_PIN 21
 #define SCL_PIN 22
 #define PAGE_CAPACITY 3
-#define MUSIC_COUNT 5
 
 #define BOTTOM_RIGHT CONFIG_BOTTOM_RIGHT
 #define BOTTOM_LEFT CONFIG_BOTTOM_LEFT
@@ -31,7 +30,7 @@
 #define TOP_LEFT CONFIG_TOP_LEFT
 
 /* Debounce / UI timing (ms) */
-#define DEBOUNCE_MS 100
+#define DEBOUNCE_MS 150
 #define DOUBLE_CLICK_MS 250
 #define VOLUME_SHOW_MS 2000
 
@@ -48,6 +47,7 @@ typedef enum { SELECT_AUDIO, LISTNING_AUDIO, LISTING_BT } app_mode_t;
 static QueueHandle_t s_input_queue;
 static SemaphoreHandle_t s_scanning_mutex;
 static SemaphoreHandle_t s_bt_mutex;
+static SemaphoreHandle_t s_rm_mutex;
 
 /* UI / navigation */
 static app_mode_t s_mode = SELECT_AUDIO;
@@ -55,9 +55,10 @@ static int s_pinned = 0;
 static int s_start_index = 0;
 
 /* Audio */
-static music_t s_music[MUSIC_COUNT] = {0};
-static int s_music_len = MUSIC_COUNT;
-static music_t s_selected = {0};
+static int music_count = 0;
+music_t **s_music = {0};
+static int s_music_len = 0;
+static music_t *s_selected = {0};
 static int s_volume_level = 50;
 static bool s_paused = false;
 static int s_volume_changed_at = 0; /* timestamp of last volume change   */
@@ -72,6 +73,8 @@ static bool s_scanning = true;
 
 /* Wi-Fi */
 static bool s_wifi_connected = false;
+static bool s_changed = false;
+static bool *w_params[2] = {&s_wifi_connected, &s_changed};
 
 /* ISR helpers */
 static int s_last_push = 0;
@@ -345,14 +348,16 @@ static void draw_ui_task(void *args) {
 
     switch (s_mode) {
     case SELECT_AUDIO:
-      draw_select_music(s_music, s_start_index, s_music_len - 1, s_pinned);
+
+      draw_select_music(s_music, s_start_index, s_music_len, s_pinned);
       break;
 
     case LISTNING_AUDIO: {
       bool show_volume = (s_volume_changed_at != 0 &&
                           now - s_volume_changed_at < VOLUME_SHOW_MS);
-      draw_music_control(s_selected.name, progress, s_selected.duration,
-                         s_paused, show_volume, s_volume_level);
+      draw_music_control(s_selected->name + strlen("/sdcard/"), progress,
+                         s_selected->duration, s_paused, show_volume,
+                         s_volume_level);
       if (!s_paused) {
         progress += 0.1f;
         if (progress >= 100.0f)
@@ -402,29 +407,92 @@ static void bt_task(void *args) {
  * Wi-Fi task
  * -------------------------------------------------------------------------*/
 static void wifi_task(void *args) {
-  wifi_softap_init(&s_wifi_connected);
+
+  xSemaphoreTake(s_rm_mutex, portMAX_DELAY);
+  wifi_softap_init(w_params);
+  xSemaphoreGive(s_rm_mutex);
+
   while (1) {
     vTaskDelay(pdMS_TO_TICKS(100));
   }
 }
 
-/* SD Card task */
-static void sdcard_task(void* args){
-    init_sd_card();
-    while (1) {
-        vTaskDelay(pdMS_TO_TICKS(10));
-    }
+/* ---------------------------------------------------------------------------
+ * SD Card task
+ * ---------------------------------------------------------------------------*/
+static void sdcard_task(void *args) {
+  init_sd_card();
+  while (1) {
+    vTaskDelay(pdMS_TO_TICKS(10));
+  }
 }
 
-/* ---------------------------------------------------------------------------
- * Static data initialisation
- * -------------------------------------------------------------------------*/
-static void fill_music_library(void) {
-  s_music[0] = (music_t){.name = "I came", .duration = 400};
-  s_music[1] = (music_t){.name = "I saw", .duration = 500};
-  s_music[2] = (music_t){.name = "I wanted", .duration = 500};
-  s_music[3] = (music_t){.name = "I conquered", .duration = 500};
-  s_music[4] = (music_t){.name = "I failed", .duration = 500};
+static int fill_music_library(char **names, int count) {
+  if (s_music == NULL || music_count == 0) {
+    ESP_LOGI("HH", "%d", count);
+    s_music = malloc(count * sizeof(music_t *));
+
+    if (!s_music) {
+      ESP_LOGE("hh", "unable to malloc heap for <s_music>");
+      return -1;
+    }
+
+    s_music_len = count;
+  } else {
+    for (int i = 0; i < music_count; i++) {
+      free(s_music[i]);
+    }
+    s_music = realloc(s_music, count * sizeof(music_t *));
+    if (!s_music) {
+      ESP_LOGE("hh", "unable to realloc heap for <s_music>");
+      return -1;
+    }
+
+    s_music_len = count;
+  }
+
+  for (int i = 0; i < count; i++) {
+    music_t *mus = malloc(sizeof(music_t));
+    ESP_LOGI("hh", "sizeof music_t = %d", (int)sizeof(music_t));
+    ESP_LOGI("hh", "free heap before loop = %d", (int)esp_get_free_heap_size());
+    if (!mus) {
+      ESP_LOGE("hh", "unable to malloc heap for <mus>");
+      return -1;
+    }
+    mus->name = names[i];
+    s_music[i] = mus;
+    ESP_LOGI("hh", "noo %s", s_music[i]->name);
+  }
+
+  music_count = count;
+  return 0;
+}
+
+static void fs_task(void *args) {
+  int count = 0;
+  init_fs();
+
+  if (fill_music_library(get_names(&count), count) == -1) {
+    ESP_LOGE("WTF", "idk what is wrong");
+  } else {
+    ESP_LOGI("WTF", "the data is got");
+  }
+
+  while (1) {
+    xSemaphoreTake(s_rm_mutex, portMAX_DELAY);
+
+    if (s_changed == true) {
+      if (fill_music_library(get_names(&count), count) == -1) {
+        ESP_LOGE("WTF", "idk what is wrong");
+      } else {
+        ESP_LOGI("WTF", "the data is got");
+      }
+      s_changed = false;
+    }
+
+    xSemaphoreGive(s_rm_mutex);
+    vTaskDelay(pdMS_TO_TICKS(10));
+  }
 }
 
 /* ---------------------------------------------------------------------------
@@ -434,14 +502,12 @@ void app_main(void) {
   s_input_queue = xQueueCreate(10, sizeof(int));
   s_scanning_mutex = xSemaphoreCreateMutex();
   s_bt_mutex = xSemaphoreCreateMutex();
-
-  fill_music_library();
-  init_fs();
+  s_rm_mutex = xSemaphoreCreateMutex();
 
   xTaskCreatePinnedToCore(bt_task, "bt_task", 4096, NULL, 6, NULL, 0);
-  xTaskCreatePinnedToCore(wifi_task, "wifi_task", 4096, NULL, 5, NULL, 1);
+  xTaskCreatePinnedToCore(wifi_task, "wifi_task", 8192 * 2, NULL, 3, NULL, 1);
   xTaskCreate(draw_ui_task, "draw_ui", 2048, NULL, 5, NULL);
   xTaskCreate(handle_input, "handle_input", 2048, NULL, 4, NULL);
-  xTaskCreate(sdcard_task, "sd_card", 4096, NULL, 3, NULL);
-  
+  xTaskCreate(sdcard_task, "sd_card", 2048, NULL, 7, NULL);
+  xTaskCreate(fs_task, "fs_task", 2048, NULL, 3, NULL);
 }

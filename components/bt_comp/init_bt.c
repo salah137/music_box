@@ -92,7 +92,7 @@ static bool device_exists(const char *bda_str)
 /** Double the device array capacity. Returns true on success. */
 static bool grow_devices_array(void)
 {
-    int          new_max = (*s.max_len) * 2;
+    int          new_max = (*s.max_len) + 4;
     bt_device_t **tmp    = realloc(*s.array, (size_t)new_max * sizeof(bt_device_t *));
     if (!tmp) {
         ESP_LOGE(TAG, "realloc failed – device list is full");

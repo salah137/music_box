@@ -3,6 +3,6 @@
 #include "esp_https_server.h"
 
 
-void wifi_softap_init(bool* connected);
+void wifi_softap_init(bool** w_params);
 
 #endif

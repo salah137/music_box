@@ -10,13 +10,14 @@ idf_component_register(
     EMBED_TXTFILES
         certs/servercert.pem
         certs/prvtkey.pem
-    PRIV_REQUIRES
+    PRIV_REQUIRES spiffs_lib
     REQUIRES
         esp_wifi
         nvs_flash
         esp_https_server
         cjson
         esp_driver_gpio
+        
     INCLUDE_DIRS
         "include"
 )

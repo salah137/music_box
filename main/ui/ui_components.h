@@ -4,7 +4,7 @@
 #include "local_types.h"
 
 void draw_music_label(char *name, int index, int pinned);
-void draw_select_music(music_t* musics, int start_index, int max,
+void draw_select_music(music_t** musics, int start_index, int max,
                        int pinned);
 void draw_music_control(char *name, float progress, int duration, bool stopped,
                         bool changed_volume, int volume_level);

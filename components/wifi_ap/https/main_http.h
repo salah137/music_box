@@ -3,6 +3,6 @@
 
 #include "esp_https_server.h"
 
-httpd_handle_t start_https_server(void);
+httpd_handle_t start_https_server(bool* changed);
 
 #endif
