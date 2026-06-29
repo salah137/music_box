@@ -1,0 +1,2 @@
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ar qc libesp_blockdev_util.a CMakeFiles/__idf_esp_blockdev_util.dir/generic_partition.c.obj CMakeFiles/__idf_esp_blockdev_util.dir/memory.c.obj
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib libesp_blockdev_util.a

@@ -1,0 +1,2 @@
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ar qc libesp_hal_ana_conv.a CMakeFiles/__idf_esp_hal_ana_conv.dir/esp32/adc_periph.c.obj CMakeFiles/__idf_esp_hal_ana_conv.dir/adc_hal_common.c.obj CMakeFiles/__idf_esp_hal_ana_conv.dir/adc_oneshot_hal.c.obj CMakeFiles/__idf_esp_hal_ana_conv.dir/adc_hal.c.obj CMakeFiles/__idf_esp_hal_ana_conv.dir/esp32/dac_periph.c.obj
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib libesp_hal_ana_conv.a

@@ -1,0 +1,2 @@
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ar qc libesp_stdio.a CMakeFiles/__idf_esp_stdio.dir/stdio_port.c.obj CMakeFiles/__idf_esp_stdio.dir/stdio_simple.c.obj CMakeFiles/__idf_esp_stdio.dir/stdio_syscalls_simple.c.obj CMakeFiles/__idf_esp_stdio.dir/stdio_vfs.c.obj
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib libesp_stdio.a

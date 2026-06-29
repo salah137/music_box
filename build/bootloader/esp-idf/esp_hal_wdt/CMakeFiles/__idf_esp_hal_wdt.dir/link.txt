@@ -1,0 +1,2 @@
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ar qc libesp_hal_wdt.a CMakeFiles/__idf_esp_hal_wdt.dir/esp32/mwdt_periph.c.obj CMakeFiles/__idf_esp_hal_wdt.dir/wdt_hal_iram.c.obj
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib libesp_hal_wdt.a

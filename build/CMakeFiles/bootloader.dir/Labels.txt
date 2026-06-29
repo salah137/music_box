@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/salah/Projects/embeded/music_box/build/CMakeFiles/bootloader
+/home/salah/Projects/embeded/music_box/build/CMakeFiles/bootloader.rule
+/home/salah/Projects/embeded/music_box/build/CMakeFiles/bootloader-complete.rule
+/home/salah/Projects/embeded/music_box/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/salah/Projects/embeded/music_box/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/salah/Projects/embeded/music_box/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/salah/Projects/embeded/music_box/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/salah/Projects/embeded/music_box/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/salah/Projects/embeded/music_box/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/salah/Projects/embeded/music_box/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

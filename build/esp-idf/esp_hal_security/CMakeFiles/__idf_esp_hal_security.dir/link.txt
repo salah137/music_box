@@ -1,0 +1,2 @@
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ar qc libesp_hal_security.a CMakeFiles/__idf_esp_hal_security.dir/mpi_hal.c.obj CMakeFiles/__idf_esp_hal_security.dir/sha_hal.c.obj CMakeFiles/__idf_esp_hal_security.dir/aes_hal.c.obj CMakeFiles/__idf_esp_hal_security.dir/mpu_hal.c.obj
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib libesp_hal_security.a

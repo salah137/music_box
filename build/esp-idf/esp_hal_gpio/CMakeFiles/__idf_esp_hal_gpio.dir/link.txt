@@ -1,0 +1,2 @@
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ar qc libesp_hal_gpio.a CMakeFiles/__idf_esp_hal_gpio.dir/gpio_hal.c.obj CMakeFiles/__idf_esp_hal_gpio.dir/rtc_io_hal.c.obj CMakeFiles/__idf_esp_hal_gpio.dir/esp32/rtc_io_periph.c.obj CMakeFiles/__idf_esp_hal_gpio.dir/sdm_hal.c.obj CMakeFiles/__idf_esp_hal_gpio.dir/esp32/sdm_periph.c.obj
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib libesp_hal_gpio.a

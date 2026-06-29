@@ -1,0 +1,2 @@
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ar qc libwifi_ap.a CMakeFiles/__idf_wifi_ap.dir/ap_init.c.obj CMakeFiles/__idf_wifi_ap.dir/https/main_http.c.obj CMakeFiles/__idf_wifi_ap.dir/https/uri_handlers/check/check.c.obj CMakeFiles/__idf_wifi_ap.dir/https/uri_handlers/upload/upload.c.obj CMakeFiles/__idf_wifi_ap.dir/__/__/servercert.pem.S.obj CMakeFiles/__idf_wifi_ap.dir/__/__/prvtkey.pem.S.obj
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib libwifi_ap.a

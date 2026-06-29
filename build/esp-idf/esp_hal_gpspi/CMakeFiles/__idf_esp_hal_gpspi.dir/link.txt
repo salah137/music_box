@@ -1,0 +1,2 @@
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ar qc libesp_hal_gpspi.a CMakeFiles/__idf_esp_hal_gpspi.dir/esp32/spi_periph.c.obj CMakeFiles/__idf_esp_hal_gpspi.dir/spi_hal.c.obj CMakeFiles/__idf_esp_hal_gpspi.dir/spi_hal_iram.c.obj CMakeFiles/__idf_esp_hal_gpspi.dir/spi_slave_hal.c.obj CMakeFiles/__idf_esp_hal_gpspi.dir/spi_slave_hal_iram.c.obj
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib libesp_hal_gpspi.a

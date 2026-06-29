@@ -1,0 +1,36 @@
+esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_spiflash.c.obj: \
+ /home/salah/esp-idf/components/esp_rom/patches/esp_rom_spiflash.c \
+ /home/salah/Projects/embeded/music_box/build/bootloader/config/sdkconfig.h \
+ /home/salah/esp-idf/components/soc/esp32/include/soc/soc_caps.h \
+ /home/salah/esp-idf/components/soc/include/soc/soc_caps_eval.h \
+ /home/salah/esp-idf/components/soc/esp32/include/soc/soc.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/stdint.h \
+ /home/salah/esp-idf/components/esp_libc/platform_include/sys/cdefs.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/cdefs.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/config.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/machine/ieeefp.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/features.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/picolibc.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.2.0/include/float.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/machine/_default_types.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.2.0/include/stddef.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/_intsup.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/_stdint.h \
+ /home/salah/esp-idf/components/esp_common/include/esp_assert.h \
+ /home/salah/esp-idf/components/esp_libc/platform_include/assert.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/stdlib.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/machine/stdlib.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/alloca.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/_locale.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/_wait.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/assert.h \
+ /home/salah/esp-idf/components/soc/esp32/include/soc/interrupts.h \
+ /home/salah/esp-idf/components/esp_common/include/esp_bit_defs.h \
+ /home/salah/esp-idf/components/soc/esp32/register/soc/reg_base.h \
+ /home/salah/esp-idf/components/soc/esp32/register/soc/spi_reg.h \
+ /home/salah/esp-idf/components/esp_rom/include/esp_rom_spiflash.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.2.0/include/stdbool.h \
+ /home/salah/esp-idf/components/esp_rom/include/esp_rom_spiflash_defs.h \
+ /home/salah/esp-idf/components/esp_rom/esp32/include/esp32/rom/spi_flash.h \
+ /home/salah/esp-idf/components/esp_common/include/esp_attr.h \
+ /home/salah/esp-idf/components/esp_common/include/esp_assert.h

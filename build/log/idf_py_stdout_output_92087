@@ -1,0 +1,1887 @@
+Command: /home/salah/.espressif/python_env/idf6.2_py3.14_env/bin/python /home/salah/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/salah/Projects/embeded/music_box/build/musicano.elf /home/salah/Projects/embeded/music_box/build/bootloader/bootloader.elf -m '/home/salah/.espressif/python_env/idf6.2_py3.14_env/bin/python' '/home/salah/esp-idf/tools/idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6292
+load:0x40078000,len:15820
+load:0x40080400,len:3988
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-5572-g4288cd3334-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 29 2026 14:17:54[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.1[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 files            Unknown data     01 82 00210000 001f0000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (87) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=3b998h (244120) map[0m
+[0;32mI (182) esp_image: segment 1: paddr=0004b9c0 vaddr=3ffbdb60 size=04658h ( 18008) load[0m
+[0;32mI (189) esp_image: segment 2: paddr=00050020 vaddr=400d0020 size=111028h (1118248) map[0m
+[0;32mI (588) esp_image: segment 3: paddr=00161050 vaddr=3ffc21b8 size=01c44h (  7236) load[0m
+[0;32mI (591) esp_image: segment 4: paddr=00162c9c vaddr=40080000 size=19554h (103764) load[0m
+[0;32mI (634) esp_image: segment 5: paddr=0017c1f8 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (647) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (648) boot: Disabling RNG early entropy source...[0m
+[0;32mI (658) cpu_start: Multicore app[0m
+[0;32mI (667) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (667) cpu_start: Pro cpu start user code[0m
+[0;32mI (667) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (669) app_init: Application information:[0m
+[0;32mI (673) app_init: Project name:     musicano[0m
+[0;32mI (677) app_init: App version:      7f88cdb-dirty[0m
+[0;32mI (681) app_init: Compile time:     Jun 29 2026 14:25:51[0m
+[0;32mI (686) app_init: ELF file SHA256:  c05f9c7f2...[0m
+[0;32mI (690) app_init: ESP-IDF:          v6.1-dev-5572-g4288cd3334-dirty[0m
+[0;32mI (696) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (700) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (704) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (708) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (714) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (719) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (724) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (730) heap_init: At 3FFD74F0 len 00008B10 (34 KiB): DRAM[0m
+[0;32mI (735) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (740) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (746) heap_init: At 40099554 len 00006AAC (26 KiB): IRAM[0m
+[0;33mW (752) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (764) spi_flash: detected chip: generic[0m
+[0;32mI (768) spi_flash: flash io: dio[0m
+[0;32mI (772) coexist: coex firmware version: 789e098[0m
+[0;32mI (776) main_task: Started on CPU0[0m
+[0;32mI (776) main_task: Calling app_main()[0m
+[0;32mI (776) MEM: Heap at start: 167848[0m
+[0;32mI (816) BTDM_INIT: BT controller compile version [e02a38e][0m
+[0;32mI (816) BTDM_INIT: Using main XTAL as clock source[0m
+[0;32mI (826) BTDM_INIT: Bluetooth MAC: f4:65:0b:49:7e:fa[0m
+[0;32mI (826) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (896) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (896) MEM: Heap after bt_task: 138844[0m
+[0;32mI (896) MEM: Heap after wifi_task: 105968[0m
+[0;32mI (926) wifi:wifi driver task: 3ffdf8cc, prio:23, stack:6656, core=0[0m
+Probing SSD1306...
+SSD1306 detected
+[0;32mI (1436) wifi:wifi firmware version: 7755984[0m
+[0;32mI (1436) wifi:wifi certification version: v7.0[0m
+[0;32mI (1436) wifi:config NVS flash: enabled[0m
+[0;32mI (1446) wifi:config nano formatting: disabled[0m
+[0;32mI (1446) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1446) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1456) wifi:Init management short buffer num: 32[0m
+[0;32mI (1456) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1466) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1466) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1476) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1476) wifi_init: rx ba win: 6[0m
+[0;32mI (1486) wifi_init: accept mbox: 6[0m
+[0;32mI (1486) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1486) wifi_init: udp mbox: 6[0m
+[0;32mI (1486) wifi_init: tcp mbox: 6[0m
+[0;32mI (1486) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1496) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1496) wifi_init: tcp mss: 1440[0m
+[0;32mI (1486) MEM: Heap after draw_ui task start: 41680[0m
+[0;32mI (1516) wifi:mode : softAP (f4:65:0b:49:7e:f9)[0m
+[0;32mI (1696) wifi:Total power save buffer number: 16[0m
+[0;32mI (1696) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (1706) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (1706) WIFI_AP: wifi_init_softap finished. SSID:esp_wifi password:esp230005 channel:1[0m
+[0;32mI (1706) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (1716) WIFI_AP: ap started[0m
+[0;32mI (1736) http_server: HTTPS server started on port 443[0m
+[0;33mW (1746) BT_BTC: A2DP Enable without AVRC[0m
+[0;32mI (1756) BT_SCAN: Unhandled GAP event: 10[0m
+[0;32mI (1756) BT_SCAN: Unhandled GAP event: 10[0m
+[0;32mI (1766) MEM: Heap after handle_input task start: 1728[0m
+[0;32mI (1766) MEM: Heap after sd_card task: 1648[0m
+[0;32mI (1766) MEM: Heap after fs_take: 1648[0m
+[1;31mE (1766) BT_OSI: calloc failed (caller=0x400f80a9 size=4112)[0m
+[1;31mE (1776) BT_OSI: heap info: free=1948, largest_block=1600[0m
+[0;32mI (1776) BT_SCAN: Discovery STARTED[0m
+[0;32mI (1786) main_task: Returned from app_main()[0m
+[0;32mI (14586) BT_SCAN: Discovery STOPPED[0m
+Guru Meditation Error: Core  1 panic'ed (LoadProhibited). Exception was unhandled.
+
+Core  1 register dump:
+PC      : 0x400e0cf6  PS      : 0x00060d30  A0      : 0x800e125a  A1      : 0x3fffa250  
+A2      : 0x0000000d  A3      : 0x00000000  A4      : 0x3ffbc4c4  A5      : 0x0000000d  
+A6      : 0x3fffa2d0  A7      : 0x00000001  A8      : 0x00000000  A9      : 0x00000000  
+A10     : 0x3ffbc4c4  A11     : 0x3fffa2d0  A12     : 0x00060f20  A13     : 0x3ffbc4c4  
+A14     : 0x00000003  A15     : 0x00060f23  SAR     : 0x00000013  EXCCAUSE: 0x0000001c  
+EXCVADDR: 0x00000000  LBEG    : 0x4000c2e0  LEND    : 0x4000c2f6  LCOUNT  : 0xffffffff  
+
+
+Backtrace: 0x400e0cf3:0x3fffa250 0x400e1257:0x3fffa270 0x401dcfae:0x3fffa300
+
+
+
+
+ELF file SHA256: c05f9c7f2
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6292
+load:0x40078000,len:15820
+load:0x40080400,len:3988
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-5572-g4288cd3334-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 29 2026 14:17:54[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.1[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (77) boot:  3 files            Unknown data     01 82 00210000 001f0000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (87) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=3b998h (244120) map[0m
+[0;32mI (182) esp_image: segment 1: paddr=0004b9c0 vaddr=3ffbdb60 size=04658h ( 18008) load[0m
+[0;32mI (189) esp_image: segment 2: paddr=00050020 vaddr=400d0020 size=111028h (1118248) map[0m
+[0;32mI (588) esp_image: segment 3: paddr=00161050 vaddr=3ffc21b8 size=01c44h (  7236) load[0m
+[0;32mI (591) esp_image: segment 4: paddr=00162c9c vaddr=40080000 size=19554h (103764) load[0m
+[0;32mI (634) esp_image: segment 5: paddr=0017c1f8 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (647) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (647) boot: Disabling RNG early entropy source...[0m
+[0;32mI (658) cpu_start: Multicore app[0m
+[0;32mI (666) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (667) cpu_start: Pro cpu start user code[0m
+[0;32mI (667) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (669) app_init: Application information:[0m
+[0;32mI (672) app_init: Project name:     musicano[0m
+[0;32mI (676) app_init: App version:      7f88cdb-dirty[0m
+[0;32mI (681) app_init: Compile time:     Jun 29 2026 14:25:51[0m
+[0;32mI (686) app_init: ELF file SHA256:  c05f9c7f2...[0m
+[0;32mI (690) app_init: ESP-IDF:          v6.1-dev-5572-g4288cd3334-dirty[0m
+[0;32mI (696) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (700) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (704) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (708) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (714) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (719) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (724) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (729) heap_init: At 3FFD74F0 len 00008B10 (34 KiB): DRAM[0m
+[0;32mI (735) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (740) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (746) heap_init: At 40099554 len 00006AAC (26 KiB): IRAM[0m
+[0;33mW (752) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (764) spi_flash: detected chip: generic[0m
+[0;32mI (767) spi_flash: flash io: dio[0m
+[0;32mI (772) coexist: coex firmware version: 789e098[0m
+[0;32mI (776) main_task: Started on CPU0[0m
+[0;32mI (776) main_task: Calling app_main()[0m
+[0;32mI (776) MEM: Heap at start: 167848[0m
+[0;32mI (816) BTDM_INIT: BT controller compile version [e02a38e][0m
+[0;32mI (816) BTDM_INIT: Using main XTAL as clock source[0m
+[0;32mI (826) BTDM_INIT: Bluetooth MAC: f4:65:0b:49:7e:fa[0m
+[0;32mI (826) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (896) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (896) MEM: Heap after bt_task: 138844[0m
+[0;32mI (896) MEM: Heap after wifi_task: 105968[0m
+Probing SSD1306...
+[0;33mW (956) i2c.common: GPIO 21 is not usable, maybe conflict with others[0m
+[0;33mW (956) i2c.common: GPIO 22 is not usable, maybe conflict with others[0m
+[1;31mE (956) i2c.master: I2C hardware timeout detected[0m
+[1;31mE (966) i2c.master: probe device timeout. Please check if xfer_timeout_ms and pull-ups are correctly set up[0m
+SSD1306 NOT detected
+[1;31mE (976) i2c.master: i2c_master_multi_buffer_transmit(1281): i2c handle not initialized[0m
+ESP_ERROR_CHECK failed: esp_err_t 0x102 (ESP_ERR_INVALID_ARG) at 0x400e1f91
+file: "./components/i2c_oled/i2c_connection.c" line 63
+func: ssd1306_command
+expression: i2c_master_multi_buffer_transmit(screen->handler, infos, 2, pdMS_TO_TICKS(200))
+
+abort() was called at PC 0x4009332b on core 1
+
+
+Backtrace: 0x400933d1:0x3ffddb30 0x40093399:0x3ffddb50 0x40092449:0x3ffddb70 0x4009332b:0x3ffddbe0 0x400e1f91:0x3ffddc10 0x400e1be4:0x3ffddc30 0x400e1c85:0x3ffddc50 0x400e1295:0x3ffddc70 0x401dcfae:0x3ffddca0
+
+
+
+
+ELF file SHA256: c05f9c7f2
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6292
+load:0x40078000,len:15820
+load:0x40080400,len:3988
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-5572-g4288cd3334-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 29 2026 14:17:54[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.1[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (77) boot:  3 files            Unknown data     01 82 00210000 001f0000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (87) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=3b998h (244120) map[0m
+[0;32mI (182) esp_image: segment 1: paddr=0004b9c0 vaddr=3ffbdb60 size=04658h ( 18008) load[0m
+[0;32mI (189) esp_image: segment 2: paddr=00050020 vaddr=400d0020 size=111028h (1118248) map[0m
+[0;32mI (588) esp_image: segment 3: paddr=00161050 vaddr=3ffc21b8 size=01c44h (  7236) load[0m
+[0;32mI (591) esp_image: segment 4: paddr=00162c9c vaddr=40080000 size=19554h (103764) load[0m
+[0;32mI (634) esp_image: segment 5: paddr=0017c1f8 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (647) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (647) boot: Disabling RNG early entropy source...[0m
+[0;32mI (658) cpu_start: Multicore app[0m
+[0;32mI (666) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (667) cpu_start: Pro cpu start user code[0m
+[0;32mI (667) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (669) app_init: Application information:[0m
+[0;32mI (672) app_init: Project name:     musicano[0m
+[0;32mI (676) app_init: App version:      7f88cdb-dirty[0m
+[0;32mI (681) app_init: Compile time:     Jun 29 2026 14:25:51[0m
+[0;32mI (686) app_init: ELF file SHA256:  c05f9c7f2...[0m
+[0;32mI (690) app_init: ESP-IDF:          v6.1-dev-5572-g4288cd3334-dirty[0m
+[0;32mI (696) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (700) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (704) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (708) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (714) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (719) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (724) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (729) heap_init: At 3FFD74F0 len 00008B10 (34 KiB): DRAM[0m
+[0;32mI (735) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (740) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (746) heap_init: At 40099554 len 00006AAC (26 KiB): IRAM[0m
+[0;33mW (752) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (764) spi_flash: detected chip: generic[0m
+[0;32mI (767) spi_flash: flash io: dio[0m
+[0;32mI (772) coexist: coex firmware version: 789e098[0m
+[0;32mI (776) main_task: Started on CPU0[0m
+[0;32mI (776) main_task: Calling app_main()[0m
+[0;32mI (776) MEM: Heap at start: 167848[0m
+[0;32mI (816) BTDM_INIT: BT controller compile version [e02a38e][0m
+[0;32mI (816) BTDM_INIT: Using main XTAL as clock source[0m
+[0;32mI (826) BTDM_INIT: Bluetooth MAC: f4:65:0b:49:7e:fa[0m
+[0;32mI (826) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (1386) MEM: Heap after bt_task: 121664[0m
+[0;32mI (1386) MEM: Heap after wifi_task: 79576[0m
+Probing SSD1306...
+SSD1306 detected
+[0;32mI (1396) MEM: Heap after draw_ui task start: 67040[0m
+[0;32mI (1406) wifi:wifi driver task: 3ffe38ac, prio:23, stack:6656, core=0[0m
+[0;32mI (1426) wifi:wifi firmware version: 7755984[0m
+[0;32mI (1426) wifi:wifi certification version: v7.0[0m
+[0;32mI (1426) wifi:config NVS flash: enabled[0m
+[0;32mI (1426) wifi:config nano formatting: disabled[0m
+[0;32mI (1426) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1436) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1436) wifi:Init management short buffer num: 32[0m
+[0;32mI (1446) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1446) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1456) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1456) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1466) wifi_init: rx ba win: 6[0m
+[0;32mI (1466) wifi_init: accept mbox: 6[0m
+[0;32mI (1466) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1466) wifi_init: udp mbox: 6[0m
+[0;32mI (1476) wifi_init: tcp mbox: 6[0m
+[0;32mI (1476) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1476) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1486) wifi_init: tcp mss: 1440[0m
+[0;32mI (1496) wifi:mode : softAP (f4:65:0b:49:7e:f9)[0m
+[0;32mI (1686) wifi:Total power save buffer number: 16[0m
+[0;32mI (1686) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (1686) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (1686) WIFI_AP: wifi_init_softap finished. SSID:esp_wifi password:esp230005 channel:1[0m
+[0;32mI (1466) MEM: Heap after handle_input task start: 39132[0m
+[0;32mI (1696) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (1706) WIFI_AP: ap started[0m
+[1;31mE (1716) http_server: Failed to start HTTPS server: ESP_ERR_HTTPD_TASK[0m
+[1;31mE (1726) vfs_fat_sdmmc: sdmmc_card_init failed (0x107).[0m
+[0;33mW (1726) gpio: conflict found for GPIO[25][0m
+[0;33mW (1726) BT_BTC: A2DP Enable without AVRC[0m
+[1;31mE (1726) vfs_fat_sdmmc: esp_vfs_fat_sdspi_sdcard_init failed (0x107).[0m
+[1;31mE (1736) sd_spi: SD mount failed: ESP_ERR_TIMEOUT[0m
+[0;32mI (1746) BT_SCAN: Unhandled GAP event: 10[0m
+[0;32mI (1746) BT_SCAN: Unhandled GAP event: 10[0m
+[0;32mI (1726) MEM: Heap after sd_card task: 13628[0m
+[0;32mI (1746) BT_SCAN: Discovery STARTED[0m
+[0;32mI (1756) spiffs: preparing spiff[0m
+[0;32mI (1756) MEM: Heap after fs_take: 3844[0m
+[0;32mI (1766) main_task: Returned from app_main()[0m
+[0;32mI (1926) spiffs: used 0, free 1860161[0m
+[0;32mI (1936) spiffs: helllo[0m
+[1;31mE (2086) spiffs: unable to open names.txt[0m
+[0;32mI (2086) HH: 0[0m
+[1;31mE (2086) hh: unable to malloc heap for <s_music>[0m
+[1;31mE (2086) WTF: idk what is wrong[0m
+[0;32mI (14556) BT_SCAN: Discovery STOPPED[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6292
+load:0x40078000,len:15820
+load:0x40080400,len:3988
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-5572-g4288cd3334-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 29 2026 14:17:54[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.1[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 files            Unknown data     01 82 00210000 001f0000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (87) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=3b998h (244120) map[0m
+[0;32mI (182) esp_image: segment 1: paddr=0004b9c0 vaddr=3ffbdb60 size=04658h ( 18008) load[0m
+[0;32mI (189) esp_image: segment 2: paddr=00050020 vaddr=400d0020 size=111028h (1118248) map[0m
+[0;32mI (588) esp_image: segment 3: paddr=00161050 vaddr=3ffc21b8 size=01c44h (  7236) load[0m
+[0;32mI (591) esp_image: segment 4: paddr=00162c9c vaddr=40080000 size=19554h (103764) load[0m
+[0;32mI (634) esp_image: segment 5: paddr=0017c1f8 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (647) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (648) boot: Disabling RNG early entropy source...[0m
+[0;32mI (658) cpu_start: Multicore app[0m
+[0;32mI (667) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (667) cpu_start: Pro cpu start user code[0m
+[0;32mI (667) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (669) app_init: Application information:[0m
+[0;32mI (673) app_init: Project name:     musicano[0m
+[0;32mI (677) app_init: App version:      7f88cdb-dirty[0m
+[0;32mI (681) app_init: Compile time:     Jun 29 2026 14:25:51[0m
+[0;32mI (686) app_init: ELF file SHA256:  c05f9c7f2...[0m
+[0;32mI (690) app_init: ESP-IDF:          v6.1-dev-5572-g4288cd3334-dirty[0m
+[0;32mI (696) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (700) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (704) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (708) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (714) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (719) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (724) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (730) heap_init: At 3FFD74F0 len 00008B10 (34 KiB): DRAM[0m
+[0;32mI (735) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (740) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (746) heap_init: At 40099554 len 00006AAC (26 KiB): IRAM[0m
+[0;33mW (752) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (764) spi_flash: detected chip: generic[0m
+[0;32mI (768) spi_flash: flash io: dio[0m
+[0;32mI (772) coexist: coex firmware version: 789e098[0m
+[0;32mI (776) main_task: Started on CPU0[0m
+[0;32mI (776) main_task: Calling app_main()[0m
+[0;32mI (776) MEM: Heap at start: 167848[0m
+[0;32mI (816) BTDM_INIT: BT controller compile version [e02a38e][0m
+[0;32mI (816) BTDM_INIT: Using main XTAL as clock source[0m
+[0;32mI (826) BTDM_INIT: Bluetooth MAC: f4:65:0b:49:7e:fa[0m
+[0;32mI (826) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (1386) MEM: Heap after bt_task: 121664[0m
+[0;32mI (1396) MEM: Heap after wifi_task: 79576[0m
+Probing SSD1306...
+[0;33mW (1396) i2c.common: GPIO 21 is not usable, maybe conflict with others[0m
+[0;33mW (1406) i2c.common: GPIO 22 is not usable, maybe conflict with others[0m
+[1;31mE (1406) i2c.master: I2C hardware timeout detected[0m
+[0;32mI (1406) MEM: Heap after draw_ui task start: 67092[0m
+[1;31mE (1406) i2c.master: probe device timeout. Please check if xfer_timeout_ms and pull-ups are correctly set up[0m
+SSD1306 NOT detected
+[1;31mE (1426) i2c.master: i2c_master_multi_buffer_transmit(1281): i2c handle not initialized[0m
+ESP_ERROR_CHECK failed: esp_err_t 0x102 (ESP_ERR_INVALID_ARG) at 0x400e1f91
+file: "./components/i2c_oled/i2c_connection.c" line 63
+func: ssd1306_command
+expression: i2c_master_multi_buffer_transmit(screen->handler, infos, 2, pdMS_TO_TICKS(200))
+
+abort() was called at PC 0x4009332b on core 1
+
+
+Backtrace: 0x400933d1:0x3ffed7c0 0x40093399:0x3ffed7e0 0x40092449:0x3ffed800 0x4009332b:0x3ffed870 0x400e1f91:0x3ffed8a0 0x400e1be4:0x3ffed8c0 0x400e1c85:0x3ffed8e0 0x400e1295:0x3ffed900 0x401dcfae:0x3ffed930
+
+
+
+
+ELF file SHA256: c05f9c7f2
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6292
+load:0x40078000,len:15820
+load:0x40080400,len:3988
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-5572-g4288cd3334-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 29 2026 14:17:54[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.1[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (77) boot:  3 files            Unknown data     01 82 00210000 001f0000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (87) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=3b998h (244120) map[0m
+[0;32mI (182) esp_image: segment 1: paddr=0004b9c0 vaddr=3ffbdb60 size=04658h ( 18008) load[0m
+[0;32mI (189) esp_image: segment 2: paddr=00050020 vaddr=400d0020 size=111028h (1118248) map[0m
+[0;32mI (588) esp_image: segment 3: paddr=00161050 vaddr=3ffc21b8 size=01c44h (  7236) load[0m
+[0;32mI (591) esp_image: segment 4: paddr=00162c9c vaddr=40080000 size=19554h (103764) load[0m
+[0;32mI (634) esp_image: segment 5: paddr=0017c1f8 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (647) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (647) boot: Disabling RNG early entropy source...[0m
+[0;32mI (658) cpu_start: Multicore app[0m
+[0;32mI (666) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (667) cpu_start: Pro cpu start user code[0m
+[0;32mI (667) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (669) app_init: Application information:[0m
+[0;32mI (672) app_init: Project name:     musicano[0m
+[0;32mI (676) app_init: App version:      7f88cdb-dirty[0m
+[0;32mI (681) app_init: Compile time:     Jun 29 2026 14:25:51[0m
+[0;32mI (686) app_init: ELF file SHA256:  c05f9c7f2...[0m
+[0;32mI (690) app_init: ESP-IDF:          v6.1-dev-5572-g4288cd3334-dirty[0m
+[0;32mI (696) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (700) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (704) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (708) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (714) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (719) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (724) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (729) heap_init: At 3FFD74F0 len 00008B10 (34 KiB): DRAM[0m
+[0;32mI (735) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (740) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (746) heap_init: At 40099554 len 00006AAC (26 KiB): IRAM[0m
+[0;33mW (752) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (764) spi_flash: detected chip: generic[0m
+[0;32mI (767) spi_flash: flash io: dio[0m
+[0;32mI (772) coexist: coex firmware version: 789e098[0m
+[0;32mI (776) main_task: Started on CPU0[0m
+[0;32mI (776) main_task: Calling app_main()[0m
+[0;32mI (776) MEM: Heap at start: 167848[0m
+[0;32mI (816) BTDM_INIT: BT controller compile version [e02a38e][0m
+[0;32mI (816) BTDM_INIT: Using main XTAL as clock source[0m
+[0;32mI (826) BTDM_INIT: Bluetooth MAC: f4:65:0b:49:7e:fa[0m
+[0;32mI (826) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (1376) MEM: Heap after bt_task: 121664[0m
+[0;32mI (1386) MEM: Heap after wifi_task: 79576[0m
+Probing SSD1306...
+SSD1306 detected
+[0;32mI (1396) MEM: Heap after draw_ui task start: 67040[0m
+[0;32mI (1396) MEM: Heap after handle_input task start: 64884[0m
+[0;32mI (1406) wifi:wifi driver task: 3ffe38ac, prio:23, stack:6656, core=0[0m
+[0;32mI (1426) wifi:wifi firmware version: 7755984[0m
+[0;32mI (1426) wifi:wifi certification version: v7.0[0m
+[0;32mI (1426) wifi:config NVS flash: enabled[0m
+[0;32mI (1426) wifi:config nano formatting: disabled[0m
+[0;32mI (1436) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1436) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1446) sdspi_transaction: cmd=5, R1 response: command not supported[0m
+[0;32mI (1446) wifi:Init management short buffer num: 32[0m
+[0;32mI (1456) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1456) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1466) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1466) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1396) MEM: Heap after sd_card task: 55300[0m
+[0;32mI (1476) wifi_init: rx ba win: 6[0m
+[0;32mI (1476) wifi_init: accept mbox: 6[0m
+[0;32mI (1476) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1486) wifi_init: udp mbox: 6[0m
+[0;32mI (1476) spiffs: preparing spiff[0m
+[0;32mI (1486) wifi_init: tcp mbox: 6[0m
+[0;33mW (1536) BT_BTC: A2DP Enable without AVRC[0m
+[0;32mI (1536) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1536) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1536) wifi_init: tcp mss: 1440[0m
+Name: 0000
+Type: SDHC
+Speed: 400.00 kHz (limit: 400.00 kHz)
+Size: 29819MB
+CSD: ver=2, sector_size=512, capacity=61069312 read_bl_len=9
+SSR: bus_width=1
+[0;32mI (1686) sd_spi: SD card mounted at /sdcard[0m
+[0;32mI (1686) wifi:mode : softAP (f4:65:0b:49:7e:f9)[0m
+[0;32mI (1696) spiffs: used 0, free 1860161[0m
+[1;31mE (1696) spiffs: failed to open /files directory[0m
+[0;32mI (1696) wifi:Total power save buffer number: 16[0m
+[0;32mI (1706) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (1716) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (1726) WIFI_AP: wifi_init_softap finished. SSID:esp_wifi password:esp230005 channel:1[0m
+[0;32mI (1686) BT_SCAN: Unhandled GAP event: 10[0m
+[0;32mI (1726) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (1726) BT_SCAN: Unhandled GAP event: 10[0m
+[0;32mI (1736) BT_SCAN: Discovery STARTED[0m
+[0;32mI (1746) WIFI_AP: ap started[0m
+[1;31mE (1776) spiffs: unable to open names.txt[0m
+[1;31mE (1776) http_server: Failed to start HTTPS server: ESP_ERR_HTTPD_TASK[0m
+[0;32mI (1776) HH: 0[0m
+[1;31mE (1776) hh: unable to malloc heap for <s_music>[0m
+[1;31mE (1786) WTF: idk what is wrong[0m
+[0;32mI (1476) MEM: Heap after fs_take: 27360[0m
+[0;32mI (1786) main_task: Returned from app_main()[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6292
+load:0x40078000,len:15820
+load:0x40080400,len:3988
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-5572-g4288cd3334-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 29 2026 14:17:54[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.1[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 files            Unknown data     01 82 00210000 001f0000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (87) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=3b998h (244120) map[0m
+[0;32mI (182) esp_image: segment 1: paddr=0004b9c0 vaddr=3ffbdb60 size=04658h ( 18008) load[0m
+[0;32mI (189) esp_image: segment 2: paddr=00050020 vaddr=400d0020 size=111028h (1118248) map[0m
+[0;32mI (588) esp_image: segment 3: paddr=00161050 vaddr=3ffc21b8 size=01c44h (  7236) load[0m
+[0;32mI (591) esp_image: segment 4: paddr=00162c9c vaddr=40080000 size=19554h (103764) load[0m
+[0;32mI (634) esp_image: segment 5: paddr=0017c1f8 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (647) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (648) boot: Disabling RNG early entropy source...[0m
+[0;32mI (658) cpu_start: Multicore app[0m
+[0;32mI (667) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (667) cpu_start: Pro cpu start user code[0m
+[0;32mI (667) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (669) app_init: Application information:[0m
+[0;32mI (673) app_init: Project name:     musicano[0m
+[0;32mI (677) app_init: App version:      7f88cdb-dirty[0m
+[0;32mI (681) app_init: Compile time:     Jun 29 2026 14:25:51[0m
+[0;32mI (686) app_init: ELF file SHA256:  c05f9c7f2...[0m
+[0;32mI (690) app_init: ESP-IDF:          v6.1-dev-5572-g4288cd3334-dirty[0m
+[0;32mI (696) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (700) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (704) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (708) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (714) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (719) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (724) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (730) heap_init: At 3FFD74F0 len 00008B10 (34 KiB): DRAM[0m
+[0;32mI (735) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (740) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (746) heap_init: At 40099554 len 00006AAC (26 KiB): IRAM[0m
+[0;33mW (752) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (764) spi_flash: detected chip: generic[0m
+[0;32mI (768) spi_flash: flash io: dio[0m
+[0;32mI (772) coexist: coex firmware version: 789e098[0m
+[0;32mI (776) main_task: Started on CPU0[0m
+[0;32mI (776) main_task: Calling app_main()[0m
+[0;32mI (776) MEM: Heap at start: 167848[0m
+[0;32mI (816) BTDM_INIT: BT controller compile version [e02a38e][0m
+[0;32mI (816) BTDM_INIT: Using main XTAL as clock source[0m
+[0;32mI (826) BTDM_INIT: Bluetooth MAC: f4:65:0b:49:7e:fa[0m
+[0;32mI (826) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (1376) MEM: Heap after bt_task: 121664[0m
+[0;32mI (1376) MEM: Heap after wifi_task: 88784[0m
+Probing SSD1306...
+[0;32mI (1386) MEM: Heap after draw_ui task start: 67128[0m
+SSD1306 detected
+[0;32mI (1396) wifi:wifi driver task: 3ffef848, prio:23, stack:6656, core=0[0m
+[0;32mI (1416) wifi:wifi firmware version: 7755984[0m
+[0;32mI (1416) wifi:wifi certification version: v7.0[0m
+[0;32mI (1416) wifi:config NVS flash: enabled[0m
+[0;32mI (1416) wifi:config nano formatting: disabled[0m
+[0;32mI (1426) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1426) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1436) wifi:Init management short buffer num: 32[0m
+[0;32mI (1436) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1436) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1446) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1446) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1456) wifi_init: rx ba win: 6[0m
+[0;32mI (1456) wifi_init: accept mbox: 6[0m
+[0;32mI (1456) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1466) wifi_init: udp mbox: 6[0m
+[0;32mI (1466) wifi_init: tcp mbox: 6[0m
+[0;32mI (1466) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1466) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1476) wifi_init: tcp mss: 1440[0m
+[0;32mI (1496) wifi:mode : softAP (f4:65:0b:49:7e:f9)[0m
+[0;32mI (1676) wifi:Total power save buffer number: 16[0m
+[0;32mI (1676) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (1676) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (1676) WIFI_AP: wifi_init_softap finished. SSID:esp_wifi password:esp230005 channel:1[0m
+[0;32mI (1466) MEM: Heap after handle_input task start: 39176[0m
+[0;32mI (1696) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (1696) WIFI_AP: ap started[0m
+[0;32mI (1706) sdspi_transaction: cmd=52, R1 response: command not supported[0m
+[1;31mE (1706) http_server: Failed to start HTTPS server: ESP_ERR_HTTPD_TASK[0m
+[0;33mW (1716) BT_BTC: A2DP Enable without AVRC[0m
+[0;32mI (1726) BT_SCAN: Unhandled GAP event: 10[0m
+[0;32mI (1726) BT_SCAN: Unhandled GAP event: 10[0m
+[0;32mI (1736) MEM: Heap after sd_card task: 11096[0m
+[0;32mI (1736) spiffs: preparing spiff[0m
+[0;32mI (1746) sdspi_transaction: cmd=5, R1 response: command not supported[0m
+[0;32mI (1746) BT_SCAN: Discovery STARTED[0m
+[0;32mI (1746) MEM: Heap after fs_take: 3080[0m
+[1;31mE (1786) vfs_fat_sdmmc: esp_vfs_fat_mount_internal failed (0x101).[0m
+[1;31mE (1806) vfs_fat_sdmmc: esp_vfs_fat_mount_initialized failed (0x101).[0m
+[0;33mW (1816) gpio: conflict found for GPIO[25][0m
+[1;31mE (1816) sd_spi: SD mount failed: ESP_ERR_NO_MEM[0m
+[0;32mI (1826) main_task: Returned from app_main()[0m
+[0;32mI (1916) spiffs: used 0, free 1860161[0m
+[0;32mI (1916) spiffs: helllo[0m
+[1;31mE (2066) spiffs: unable to open names.txt[0m
+[0;32mI (2066) HH: 0[0m
+[1;31mE (2066) hh: unable to malloc heap for <s_music>[0m
+[1;31mE (2066) WTF: idk what is wrong[0m
+[0;32mI (14546) BT_SCAN: Discovery STOPPED[0m
+[0;32mI (18336) BT_SCAN: Discovery STARTED[0m
+[0;32mI (31146) BT_SCAN: Discovery STOPPED[0m
+[0;32mI (37136) BT_SCAN: Discovery STARTED[0m
+[0;32mI (44286) BT_SCAN: Classic BT device: 9b:3b:c1:2c:05:62[0m
+[0;32mI (44296) BT_SCAN:   Name: D-30[0m
+[0;32mI (44296) BT_SCAN: Classic BT device: 9b:3b:c1:2c:05:62[0m
+[0;32mI (44296) BT_SCAN:   Name: D-30[0m
+[0;32mI (44366) BT_SCAN: Classic BT device: 9b:3b:c1:2c:05:62[0m
+[0;32mI (44366) BT_SCAN:   Name: D-30[0m
+[0;32mI (44376) BT_SCAN: Classic BT device: 9b:3b:c1:2c:05:62[0m
+[0;32mI (44386) BT_SCAN:   Name: D-30[0m
+[0;32mI (44466) BT_SCAN: Classic BT device: 9b:3b:c1:2c:05:62[0m
+[0;32mI (44466) BT_SCAN:   Name: D-30[0m
+[0;32mI (44476) BT_SCAN: Classic BT device: 9b:3b:c1:2c:05:62[0m
+[0;32mI (44476) BT_SCAN:   Name: D-30[0m
+[0;32mI (44576) BT_SCAN: Classic BT device: 9b:3b:c1:2c:05:62[0m
+[0;32mI (44576) BT_SCAN:   Name: D-30[0m
+[0;32mI (49946) BT_SCAN: Discovery STOPPED[0m
+[0;32mI (55836) BT_SCAN: Discovery STARTED[0m
+[0;32mI (68646) BT_SCAN: Discovery STOPPED[0m
+[0;32mI (81636) BT_SCAN: Discovery STARTED[0m
+[0;32mI (83346) BT_SCAN: Classic BT device: 9b:3b:c1:2c:05:62[0m
+[0;32mI (83356) BT_SCAN:   Name: D-30[0m
+[0;32mI (83356) BT_SCAN: Discovery STOPPED[0m
+[0;33mW (83356) BT_APPL: reset flags[0m
+[0;33mW (84786) BT_HCI: hcif conn complete: hdl 0x80, st 0x0[0m
+[0;32mI (84796) BT_SCAN: Unhandled GAP event: 16[0m
+[0;32mI (84996) BT_SCAN: Unhandled GAP event: 21[0m
+[0;32mI (85066) A2DP: Audio config event[0m
+[0;33mW (85176) BT_APPL: new conn_srvc id:18, app_id:0[0m
+[0;32mI (85176) A2DP: A2DP connected – starting media[0m
+[0;33mW (85186) BT_APPL: new conn_srvc id:18, app_id:1[0m
+[0;32mI (85216) BT_LOG: bta_av_link_role_ok hndl:x41 role:0 conn_audio:x1 bits:1 features:x8400[0m
+
+[0;32mI (85216) A2DP: Audio state: 1[0m
+[1;31mE (85256) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85256) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85256) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85286) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85286) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85286) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85316) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85316) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85316) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85346) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85346) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85346) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85376) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85376) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85376) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85406) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85406) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85406) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85436) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85436) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85436) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85466) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85466) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85466) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85496) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85496) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85496) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85526) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85526) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85526) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85556) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85556) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85556) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85586) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85586) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85586) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85616) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85616) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85616) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85636) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85646) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85646) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85676) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85676) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85676) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85706) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85706) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85706) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85736) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85736) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85736) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85766) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85766) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85766) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85796) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85796) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85796) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85826) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85826) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85826) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85856) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85856) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85856) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85886) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85886) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85886) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85916) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85916) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85916) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85946) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85946) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85946) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (85976) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (85976) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (85976) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86006) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86006) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86006) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86036) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86036) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86036) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86066) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86066) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86066) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86096) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86096) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86096) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86126) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86126) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86126) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86156) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86156) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86156) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86186) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86186) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86186) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86216) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86216) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86216) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[0;33mW (86216) BT_L2CAP: L2CAP - rcvd conn req for unknown PSM: 23[0m
+[1;31mE (86246) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86246) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86246) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86276) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86276) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86276) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86306) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86306) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86306) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86336) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86336) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86336) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86366) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86366) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86366) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86396) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86396) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86396) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86426) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86426) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86426) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86456) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86456) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86456) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86486) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86486) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86486) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86516) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86516) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86516) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86546) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86546) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86546) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86576) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86576) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86576) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86606) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86606) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86606) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86636) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86636) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86636) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86656) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86666) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86666) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86696) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86696) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86696) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86726) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86726) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86726) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86756) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86756) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86756) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86786) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86786) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86786) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86816) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86816) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86816) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86846) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86846) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86846) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86876) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86876) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86876) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86906) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86906) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86906) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86936) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86936) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86936) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86966) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86966) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86966) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (86996) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (86996) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (86996) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87026) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87026) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87026) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87056) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87056) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87056) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87086) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87086) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87086) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87116) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87116) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87116) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87136) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87146) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87146) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87176) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87176) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87176) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87206) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87206) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87206) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87236) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87236) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87236) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87266) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87266) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87266) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87296) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87296) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87296) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87326) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87326) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87326) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87356) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87356) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87356) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87376) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87386) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87386) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87416) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87416) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87416) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87436) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87446) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87446) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87476) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87476) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87476) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87506) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87506) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87506) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87536) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87536) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87536) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87566) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87566) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87566) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87596) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87596) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87596) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87626) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87626) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87626) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87656) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87656) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87656) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87686) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87686) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87686) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87716) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87716) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87716) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87746) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87746) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87746) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87776) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87776) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87776) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87806) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87806) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87806) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87836) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87836) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87836) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87866) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87866) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87866) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87896) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87896) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87896) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87926) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87926) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87926) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87956) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87956) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87956) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (87986) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (87986) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (87986) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88016) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88016) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88016) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88046) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88046) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88046) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88076) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88076) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88076) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88106) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88106) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88106) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88136) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88136) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88136) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88166) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88166) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88166) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88196) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88196) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88196) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88226) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88226) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88226) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88256) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88256) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88256) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88286) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88286) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88286) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88316) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88316) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88316) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88346) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88346) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88346) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88376) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88376) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88376) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88406) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88406) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88406) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88436) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88436) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88436) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88456) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88466) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88466) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88496) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88496) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88496) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88526) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88526) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88526) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88556) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88556) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88556) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88576) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88586) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88586) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88616) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88616) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88616) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88646) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88646) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88646) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88676) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88676) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88676) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88706) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88706) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88706) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88736) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88736) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88736) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88766) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88766) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88766) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88796) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88796) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88796) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88826) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88826) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88826) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88856) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88856) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88856) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88886) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88886) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88886) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88916) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88916) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88916) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88946) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88946) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88946) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (88976) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (88976) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (88976) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89006) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89006) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89006) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89036) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89036) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89036) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89066) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89066) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89066) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89096) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89096) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89096) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89126) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89126) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89126) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89156) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89156) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89156) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89186) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89186) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89186) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89216) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89216) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89216) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89246) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89246) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89246) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89276) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89276) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89276) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89306) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89306) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89306) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89336) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89336) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89336) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89366) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89366) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89366) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89396) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89396) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89396) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89426) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89426) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89426) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89456) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89456) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89456) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89486) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89486) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89486) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89516) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89516) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89516) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89546) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89546) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89546) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89576) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89576) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89576) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89606) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89606) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89606) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89636) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89636) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89636) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89666) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89666) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89666) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89696) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89696) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89696) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89726) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89726) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89726) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89756) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89756) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89756) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89786) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89786) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89786) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89816) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89816) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89816) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89846) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89846) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89846) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89876) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89876) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89876) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89906) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89906) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89906) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89936) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89936) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89936) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89966) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89966) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89966) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (89996) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (89996) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (89996) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90026) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90026) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90026) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90056) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90056) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90056) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90086) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90086) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90086) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90116) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90116) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90116) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90146) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90146) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90146) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90176) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90176) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90176) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90206) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90206) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90206) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90236) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90236) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90236) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90266) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90266) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90266) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90296) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90296) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90296) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90326) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90326) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90326) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90356) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90356) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90356) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90386) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90386) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90386) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90416) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90416) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90416) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90446) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90446) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90446) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90476) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90476) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90476) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90506) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90506) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90506) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90536) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90536) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90536) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90566) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90566) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90566) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90596) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90596) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90596) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90616) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90626) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90626) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90656) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90656) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90656) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90686) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90686) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90686) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90716) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90716) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90716) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90746) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90746) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90746) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90776) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90776) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90776) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90806) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90806) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90806) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90836) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90836) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90836) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90866) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90866) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90866) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90896) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90896) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90896) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90926) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90926) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90926) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90956) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90956) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90956) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (90986) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (90986) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (90986) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (91016) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91016) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (91016) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (91046) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91046) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (91046) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (91076) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91076) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (91076) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[1;31mE (91106) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91106) BT_OSI: heap info: free=2424, largest_block=1728[0m
+[1;31mE (91106) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 1 [0m
+[0;33mW (91106) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (91116) BT_SCAN: Discovery STARTED[0m
+[1;31mE (91126) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91126) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91126) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91156) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91156) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91156) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91186) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91186) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91186) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91216) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91216) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91216) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91246) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91246) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91246) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91276) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91276) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91276) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91306) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91306) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91306) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91336) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91336) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91336) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91366) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91366) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91366) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91396) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91396) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91396) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91426) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91426) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91426) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91456) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91456) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91456) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91486) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91486) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91486) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91516) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91516) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91516) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91546) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91546) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91546) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91576) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91576) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91576) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91606) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91606) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91606) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91636) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91636) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91636) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91666) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91666) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91666) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91696) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91696) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91696) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91726) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91726) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91726) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91756) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91756) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91756) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91786) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91786) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91786) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91816) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91816) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91816) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91846) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91846) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91846) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91876) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91876) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91876) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91906) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91906) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91906) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91936) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91936) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91936) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91966) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91966) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91966) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (91996) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (91996) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (91996) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92026) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92026) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92026) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92056) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92056) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92056) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92086) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92086) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92086) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92116) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92116) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92116) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92146) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92146) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92146) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92176) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92176) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92176) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92206) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92206) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92206) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92236) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92236) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92236) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92266) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92266) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92266) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92296) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92296) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92296) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92326) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92326) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92326) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92356) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92356) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92356) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92386) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92386) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92386) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92416) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92416) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92416) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92446) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92446) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92446) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92476) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92476) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92476) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92506) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92506) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92506) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92536) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92536) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92536) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92566) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92566) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92566) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92596) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92596) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92596) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92626) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92626) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92626) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92656) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92656) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92656) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92686) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92686) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92686) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92716) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92716) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92716) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92746) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92746) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92746) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92776) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92776) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92776) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92806) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92806) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92806) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92836) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92836) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92836) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92866) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92866) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92866) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92896) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92896) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92896) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92926) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92926) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92926) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92956) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92956) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92956) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (92986) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (92986) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (92986) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93016) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93016) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93016) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93046) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93046) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93046) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93076) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93076) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93076) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93106) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93106) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93106) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93136) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93136) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93136) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93166) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93166) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93166) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93196) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93196) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93196) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93226) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93226) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93226) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93256) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93256) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93256) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93286) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93286) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93286) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93316) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93316) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93316) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93346) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93346) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93346) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93376) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93376) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93376) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93406) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93406) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93406) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93436) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93436) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93436) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93466) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93466) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93466) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93496) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93496) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93496) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93526) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93526) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93526) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93556) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93556) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93556) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93586) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93586) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93586) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93616) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93616) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93616) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93646) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93646) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93646) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93676) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93676) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93676) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93706) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93706) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93706) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93736) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93736) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93736) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93766) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93766) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93766) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93796) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93796) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93796) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93826) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93826) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93826) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93856) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93856) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93856) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93886) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93886) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93886) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93916) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93916) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93916) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93946) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93946) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93946) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (93976) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (93976) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (93976) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94006) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94006) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94006) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94036) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94036) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94036) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94066) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94066) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94066) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94096) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94096) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94096) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94126) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94126) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94126) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94156) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94156) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94156) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94186) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94186) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94186) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94216) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94216) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94216) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94246) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94246) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94246) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94276) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94276) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94276) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94306) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94306) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94306) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94336) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94336) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94336) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94366) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94366) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94366) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94396) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94396) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94396) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94426) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94426) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94426) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94456) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94456) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94456) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94486) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94486) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94486) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94516) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94516) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94516) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94546) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94546) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94546) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94576) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94576) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94576) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94606) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94606) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94606) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94636) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94636) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94636) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94666) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94666) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94666) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94696) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94696) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94696) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94726) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94726) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94726) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94756) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94756) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94756) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94786) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94786) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94786) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94816) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94816) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94816) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94846) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94846) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94846) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94876) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94876) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94876) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94906) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94906) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94906) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94936) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94936) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94936) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94966) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94966) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94966) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (94996) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (94996) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (94996) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95026) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95026) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95026) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95056) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95056) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95056) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95086) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95086) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95086) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95116) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95116) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95116) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95146) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95146) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95146) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95176) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95176) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95176) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95206) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95206) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95206) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95236) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95236) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95236) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95266) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95266) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95266) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95296) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95296) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95296) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95326) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95326) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95326) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95356) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95356) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95356) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95386) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95386) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95386) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95416) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95416) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95416) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95446) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95446) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95446) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95476) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95476) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95476) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95506) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95506) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95506) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95536) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95536) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95536) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95566) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95566) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95566) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95596) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95596) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95596) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95626) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95626) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95626) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95656) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95656) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95656) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95686) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95686) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95686) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95716) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95716) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95716) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95746) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95746) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95746) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95776) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95776) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95776) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95806) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95806) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95806) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95836) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95836) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95836) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95866) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95866) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95866) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95896) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95896) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95896) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95926) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95926) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95926) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95956) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95956) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95956) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (95986) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (95986) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (95986) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96016) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96016) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96016) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96046) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96046) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96046) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96076) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96076) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96076) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96106) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96106) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96106) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96136) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96136) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96136) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96166) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96166) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96166) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96196) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96196) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96196) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96226) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96226) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96226) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96256) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96256) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96256) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96286) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96286) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96286) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96316) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96316) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96316) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96346) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96346) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96346) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96376) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96376) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96376) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96406) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96406) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96406) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96436) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96436) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96436) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96466) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96466) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96466) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96496) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96496) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96496) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96526) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96526) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96526) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96556) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96556) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96556) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96586) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96586) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96586) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96616) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96616) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96616) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+[1;31mE (96646) BT_OSI: malloc failed (caller=0x40113ae5 size=4112)[0m
+[1;31mE (96646) BT_OSI: heap info: free=2440, largest_block=1728[0m
+[1;31mE (96646) BT_APPL: ERROR btc_media_aa_prep_sbc_2_send no buffer TxCnt 0 [0m
+Guru Meditation Error: Core  0 panic'ed (LoadProhibited). Exception was unhandled.
+
+Core  0 register dump:
+PC      : 0x400e0cf6  PS      : 0x00060230  A0      : 0x800e125a  A1      : 0x3fff6580  
+A2      : 0x0000000d  A3      : 0x00000000  A4      : 0x3ffbc4c4  A5      : 0x0000000d  
+A6      : 0x3fff6600  A7      : 0x00000001  A8      : 0x00000000  A9      : 0x00000000  
+A10     : 0x3ffbc4c4  A11     : 0x3fff6600  A12     : 0x00060420  A13     : 0x3ffbc4c4  
+A14     : 0x00002508  A15     : 0x00060423  SAR     : 0x00000013  EXCCAUSE: 0x0000001c  
+EXCVADDR: 0x00000000  LBEG    : 0x4000c2e0  LEND    : 0x4000c2f6  LCOUNT  : 0xffffffff  
+
+
+Backtrace: 0x400e0cf3:0x3fff6580 0x400e1257:0x3fff65a0 0x401dcfae:0x3fff6630
+
+
+
+
+ELF file SHA256: c05f9c7f2
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6292
+load:0x40078000,len:15820
+load:0x40080400,len:3988
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-5572-g4288cd3334-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 29 2026 14:17:54[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.1[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[

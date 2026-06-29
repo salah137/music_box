@@ -10,7 +10,7 @@
 static const char *TAG_http = "HTTP_LOG";
 // 7553086
 // 4069220
-#define CHUNK_SIZE 8192
+#define CHUNK_SIZE 8192 
 #define BOUNDARY_SIZE 128
 #define OVERLAP 128
 
@@ -275,14 +275,14 @@ esp_err_t upload_music_handler(httpd_req_t *req) {
             return ESP_FAIL;
           }
 
-          char *out_path = malloc(strlen("/sdcard/") + strlen(file_name) + 1);
+          char *out_path = malloc(8 + strlen(file_name) + 1);
           snprintf(out_path, strlen("/sdcard/") + strlen(file_name) + 1,
                    "/sdcard/%s", file_name);
 
           ESP_LOGI(TAG_http,
                    "path = %s, file_name = %s, out_path len = %d, size : %d",
                    out_path, file_name,
-                   strlen("/sdcard/") + strlen(file_name) + 1);
+                   8 + strlen(file_name) + 1);
 
           fprintf(names_file, "%s\n", out_path);
           fclose(names_file);

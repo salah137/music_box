@@ -1,0 +1,26 @@
+esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/xtensa_perfmon_masks.c.obj: \
+ /home/salah/esp-idf/components/perfmon/xtensa_perfmon_masks.c \
+ /home/salah/esp-idf/components/perfmon/include/xtensa_perfmon_masks.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/inttypes.h \
+ /home/salah/esp-idf/components/esp_libc/platform_include/sys/cdefs.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/cdefs.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/config.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/machine/ieeefp.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/features.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/picolibc.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.2.0/include/float.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/machine/_default_types.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/stdint.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.2.0/include/stddef.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/_intsup.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/_stdint.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/_locale.h \
+ /home/salah/esp-idf/components/xtensa/include/xtensa/xt_perf_consts.h \
+ /home/salah/esp-idf/components/xtensa/esp32/include/xtensa/config/core.h \
+ /home/salah/esp-idf/components/xtensa/include/xtensa/hal.h \
+ /home/salah/esp-idf/components/xtensa/include/xtensa/xtensa-versions.h \
+ /home/salah/esp-idf/components/xtensa/esp32/include/xtensa/config/core-isa.h \
+ /home/salah/esp-idf/components/xtensa/esp32/include/xtensa/config/core-matmap.h \
+ /home/salah/esp-idf/components/xtensa/esp32/include/xtensa/config/tie.h \
+ /home/salah/Projects/embeded/music_box/build/config/libc/picolibc/newlib/compatibility.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/libc/picolibc.cdep

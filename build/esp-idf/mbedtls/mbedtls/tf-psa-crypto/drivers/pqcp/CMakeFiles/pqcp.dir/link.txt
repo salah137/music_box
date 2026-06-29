@@ -1,0 +1,2 @@
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ar qc libpqcp.a CMakeFiles/pqcp.dir/src/psa_crypto_mldsa.c.obj CMakeFiles/pqcp.dir/src/wrap_mldsa_native.c.obj
+/home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib libpqcp.a

@@ -1,0 +1,6 @@
+"-specs=/home/salah/Projects/embeded/music_box/build/bootloader/specs/picolibc.specs"
+-Wno-frame-address
+-mlongcalls
+-fno-builtin-memcpy
+-fno-builtin-memset
+-fno-builtin-bzero

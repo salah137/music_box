@@ -1,0 +1,33 @@
+esp-idf/bt/CMakeFiles/__idf_bt.dir/common/tinycrypt/port/esp_tinycrypt_port.c.obj: \
+ /home/salah/esp-idf/components/bt/common/tinycrypt/port/esp_tinycrypt_port.c \
+ /home/salah/esp-idf/components/bt/common/tinycrypt/port/esp_tinycrypt_port.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/stdint.h \
+ /home/salah/esp-idf/components/esp_libc/platform_include/sys/cdefs.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/cdefs.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/config.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/machine/ieeefp.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/features.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/picolibc.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.2.0/include/float.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/machine/_default_types.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.2.0/include/stddef.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/_intsup.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/sys/_stdint.h \
+ /home/salah/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.2.0/include/stdbool.h \
+ /home/salah/esp-idf/components/soc/esp32/include/soc/soc_caps.h \
+ /home/salah/esp-idf/components/soc/include/soc/soc_caps_eval.h \
+ /home/salah/esp-idf/components/esp_security/include/esp_crypto_lock.h \
+ /home/salah/esp-idf/components/esp_hw_support/include/esp_private/esp_crypto_lock_internal.h \
+ /home/salah/esp-idf/components/esp_hw_support/include/esp_private/periph_ctrl.h \
+ /home/salah/esp-idf/components/soc/esp32/include/soc/periph_defs.h \
+ /home/salah/Projects/embeded/music_box/build/config/libc/picolibc/newlib/compatibility.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/libc/picolibc.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp32/rev/min/full.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/idf/target/esp32.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/idf/target/esp32s2.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/idf/target/esp32s3.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/idf/target/esp32c2.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/idf/target/esp32c3.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/idf/target/esp32c6.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/idf/target/esp32h2.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/idf/target.cdep

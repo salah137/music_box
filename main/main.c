@@ -6,6 +6,7 @@
 #include "esp_log.h"
 #include "freertos/idf_additions.h"
 #include "freertos/projdefs.h"
+#include "freertos/ringbuf.h"
 #include "i2c_connection.h"
 #include "init_bt.h"
 #include "init_fs.h"
@@ -17,6 +18,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
+
+#define MINIMP3_IMPLEMENTATION
+#define MINIMP3_ONLY_MP3
+#include "minimp3.h"
+
 /* ---------------------------------------------------------------------------
  * Constants
  * -------------------------------------------------------------------------*/
@@ -33,6 +40,8 @@
 #define DEBOUNCE_MS 150
 #define DOUBLE_CLICK_MS 250
 #define VOLUME_SHOW_MS 2000
+
+#define MP3_BUF_SIZE 1024
 
 /* ---------------------------------------------------------------------------
  * Types
@@ -59,6 +68,7 @@ static int music_count = 0;
 music_t **s_music = {0};
 static int s_music_len = 0;
 static music_t *s_selected = {0};
+
 static int s_volume_level = 50;
 static bool s_paused = false;
 static int s_volume_changed_at = 0; /* timestamp of last volume change   */
@@ -79,6 +89,9 @@ static bool *w_params[2] = {&s_wifi_connected, &s_changed};
 /* ISR helpers */
 static int s_last_push = 0;
 static bool s_set_high = true;
+
+
+RingbufHandle_t rb;
 
 /* ---------------------------------------------------------------------------
  * Timing helper
@@ -188,10 +201,11 @@ static void handle_listening_audio(int pressed, int press_count) {
   case BOTTOM_RIGHT:
     s_paused = !s_paused;
     break;
-  case BOTTOM_LEFT:
+  case BOTTOM_LEFT: {
+    s_selected = NULL;
     s_mode = SELECT_AUDIO;
     break;
-
+  }
   case TOP_RIGHT:
     if (press_count == 0) {
       if (!s_set_high) {
@@ -344,11 +358,11 @@ static void draw_ui_task(void *args) {
     const char *bt_name = (s_bt_connected && s_bt_selected >= 0)
                               ? s_bt_devices[s_bt_selected]->name
                               : "none";
+
     draw_header((char *)bt_name, s_wifi_connected, 70);
 
     switch (s_mode) {
     case SELECT_AUDIO:
-
       draw_select_music(s_music, s_start_index, s_music_len, s_pinned);
       break;
 
@@ -387,8 +401,10 @@ static void draw_ui_task(void *args) {
  * -------------------------------------------------------------------------*/
 static void bt_task(void *args) {
   s_bt_devices = malloc(sizeof(bt_device_t *) * s_bt_max_len);
-  init_bt(&s_bt_devices, &s_bt_max_len, &s_bt_len, &s_bt_selected,
-          &s_bt_connected);
+  if (rb != NULL) {
+    init_bt(&s_bt_devices, &s_bt_max_len, &s_bt_len, &s_bt_selected,
+            &s_bt_connected, &s_paused, &rb);
+  }
 
   while (1) {
     xSemaphoreTake(s_bt_mutex, portMAX_DELAY);
@@ -420,12 +436,80 @@ static void wifi_task(void *args) {
 /* ---------------------------------------------------------------------------
  * SD Card task
  * ---------------------------------------------------------------------------*/
+static mp3dec_t mp3d;
+static uint8_t mp3_buf[4096];
+static int     mp3_valid = 0;
+
 static void sdcard_task(void *args) {
-  init_sd_card();
-  while (1) {
-    vTaskDelay(pdMS_TO_TICKS(10));
-  }
+    init_sd_card();
+    mp3dec_init(&mp3d);
+
+    FILE *music_file = NULL;
+    char *current    = NULL;
+
+    while (1) {
+        if (s_selected == NULL) {
+            vTaskDelay(pdMS_TO_TICKS(100));
+            continue;
+        }
+
+        // Open or reopen on track change
+        if (music_file == NULL || current == NULL ||
+            strcmp(current, s_selected->name) != 0) {
+
+            if (music_file) fclose(music_file);
+            free(current);
+            mp3_valid = 0;  // flush input buffer on track change
+            mp3dec_init(&mp3d);  // reset decoder state
+
+            music_file = fopen(s_selected->name, "rb");
+            current    = malloc(strlen(s_selected->name) + 1);
+            strcpy(current, s_selected->name);
+
+            if (!music_file) {
+                ESP_LOGE("HOLA", "failed to open %s", s_selected->name);
+                vTaskDelay(pdMS_TO_TICKS(100));
+                continue;
+            }
+        }
+
+        // Refill MP3 input buffer
+        if (mp3_valid < (int)sizeof(mp3_buf)) {
+            memmove(mp3_buf, mp3_buf, mp3_valid);  // already at front
+            int space = sizeof(mp3_buf) - mp3_valid;
+            int read  = fread(mp3_buf + mp3_valid, 1, space, music_file);
+            if (read == 0) {
+                // EOF — loop
+                fseek(music_file, 0, SEEK_SET);
+                mp3_valid = 0;
+                continue;
+            }
+            mp3_valid += read;
+        }
+
+        // Decode one frame
+        static mp3dec_frame_info_t info;
+        static int16_t pcm[MINIMP3_MAX_SAMPLES_PER_FRAME * 2];
+        int samples = mp3dec_decode_frame(&mp3d, mp3_buf, mp3_valid, pcm, &info);
+
+        if (info.frame_bytes == 0) {
+            // Decoder needs more data — shouldn't happen with 4KB buffer
+            mp3_valid = 0;
+            continue;
+        }
+
+        // Advance input buffer
+        mp3_valid -= info.frame_bytes;
+        memmove(mp3_buf, mp3_buf + info.frame_bytes, mp3_valid);
+
+        if (samples > 0) {
+            // Send PCM to ring buffer (bytes = samples * channels * sizeof(int16_t))
+            size_t pcm_bytes = samples * info.channels * sizeof(int16_t);
+            xRingbufferSend(rb, pcm, pcm_bytes, portMAX_DELAY);
+        }
+    }
 }
+
 
 static int fill_music_library(char **names, int count) {
   if (s_music == NULL || music_count == 0) {
@@ -504,10 +588,27 @@ void app_main(void) {
   s_bt_mutex = xSemaphoreCreateMutex();
   s_rm_mutex = xSemaphoreCreateMutex();
 
+  ESP_LOGI("MEM", "Heap at start: %lu", esp_get_free_heap_size());
+  
+  rb = xRingbufferCreate(1024 * 8, RINGBUF_TYPE_NOSPLIT);
+
   xTaskCreatePinnedToCore(bt_task, "bt_task", 4096, NULL, 6, NULL, 0);
-  xTaskCreatePinnedToCore(wifi_task, "wifi_task", 8192 * 2, NULL, 3, NULL, 1);
+  ESP_LOGI("MEM", "Heap after bt_task: %lu", esp_get_free_heap_size());
+  
+  xTaskCreatePinnedToCore(wifi_task, "wifi_task", 8192 * 4, NULL, 3, NULL, 1);
+  ESP_LOGI("MEM", "Heap after wifi_task: %lu", esp_get_free_heap_size());
+
+  
   xTaskCreate(draw_ui_task, "draw_ui", 2048, NULL, 5, NULL);
+  ESP_LOGI("MEM", "Heap after draw_ui task start: %lu", esp_get_free_heap_size());
+
   xTaskCreate(handle_input, "handle_input", 2048, NULL, 4, NULL);
-  xTaskCreate(sdcard_task, "sd_card", 2048, NULL, 7, NULL);
+  ESP_LOGI("MEM", "Heap after handle_input task start: %lu", esp_get_free_heap_size());
+
+  xTaskCreate(sdcard_task, "sd_card", 8192, NULL, 7, NULL);
+  ESP_LOGI("MEM", "Heap after sd_card task: %lu", esp_get_free_heap_size());
+
   xTaskCreate(fs_task, "fs_task", 2048, NULL, 3, NULL);
+  ESP_LOGI("MEM", "Heap after fs_take: %lu", esp_get_free_heap_size());
+
 }

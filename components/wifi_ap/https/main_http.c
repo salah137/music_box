@@ -35,6 +35,8 @@ httpd_handle_t start_https_server(bool* changed) {
   httpd_config_t config = HTTPD_DEFAULT_CONFIG();
   config.server_port = 80;
   config.stack_size = 16384;
+  config.recv_wait_timeout = 30;
+  config.send_wait_timeout = 30;
 
   httpd_handle_t server = NULL;
 

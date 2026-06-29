@@ -1,0 +1,20 @@
+esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.obj: \
+ /home/salah/esp-idf/components/esp_coex/src/coexist_debug_diagram.c \
+ /home/salah/esp-idf/components/esp_coex/include/private/esp_coexist_debug.h \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/idf/target/esp32.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug/diag/general.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug/diag/wifi.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug/io/count.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug/io/idx0.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug/io/idx1.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug/io/idx2.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug/io/idx3.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug/io/idx4.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug/io/idx5.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug/io/idx6.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug/io/idx7.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug/io/idx8.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug/io/idx9.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug/io/idx10.cdep \
+ /home/salah/Projects/embeded/music_box/build/config/esp/coex/gpio/debug/io/idx11.cdep

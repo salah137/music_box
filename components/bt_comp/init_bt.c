@@ -5,15 +5,16 @@
 #include "esp_bt_device.h"
 #include "esp_bt_main.h"
 #include "esp_err.h"
-#include "esp_gap_ble_api.h"
 #include "esp_gap_bt_api.h"
 #include "esp_log.h"
 #include "local_types.h"
 #include "nvs_flash.h"
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "freertos/ringbuf.h"
+#include "freertos/task.h"
+#include "minimp3.h"
 
 /* ---------------------------------------------------------------------------
  * Constants & Tags
@@ -21,55 +22,68 @@
 #define TAG        "BT_SCAN"
 #define TAG_A2DP   "A2DP"
 
-#define SINE_TABLE_SIZE 256
-
 /* ---------------------------------------------------------------------------
- * Module state – grouped into a single struct for clarity
+ * Module state
  * -------------------------------------------------------------------------*/
 typedef struct {
-    bt_device_t ***array;       /* pointer to the caller's device array      */
-    int          *len;          /* current number of entries                  */
-    int          *max_len;      /* allocated capacity                         */
-    int          *selected;     /* index of the device to auto-connect, or -1 */
-    bool         *connected;    /* set to true once A2DP connects             */
-    esp_bd_addr_t peer;         /* BD address of the connected peer           */
+    bt_device_t ***array;
+    int          *len;
+    int          *max_len;
+    int          *selected;
+    bool         *connected;
+    bool         *paused;
+    esp_bd_addr_t peer;
 } bt_state_t;
 
+RingbufHandle_t *rb_t;
 static bt_state_t s = { 0 };
 
 /* ---------------------------------------------------------------------------
- * Audio: sine-wave generator
+ * Carry buffer for BT audio callback
  * -------------------------------------------------------------------------*/
-static int16_t  s_sine_table[SINE_TABLE_SIZE];
-static uint32_t s_phase = 0;
-
-static void sine_table_init(void)
-{
-    for (int i = 0; i < SINE_TABLE_SIZE; i++) {
-        s_sine_table[i] = (int16_t)(32767.0f * sinf(2.0f * M_PI * i / SINE_TABLE_SIZE));
-    }
-}
+static uint8_t s_carry[MINIMP3_MAX_SAMPLES_PER_FRAME * 2 * sizeof(int16_t)];
+static size_t  s_carry_len = 0;
 
 static int32_t bt_audio_data_cb(uint8_t *data, int32_t len)
 {
-    int16_t *samples    = (int16_t *)data;
-    int      num_frames = len / (2 * sizeof(int16_t)); /* stereo int16 pairs */
+    if (*(s.paused)) { memset(data, 0, len); return len; }
 
-    for (int i = 0; i < num_frames; i++) {
-        int16_t val = s_sine_table[s_phase % SINE_TABLE_SIZE];
-        samples[2 * i]     = val; /* L */
-        samples[2 * i + 1] = val; /* R */
-        s_phase++;
+    size_t filled = 0;
+
+    if (s_carry_len > 0) {
+        size_t take = s_carry_len < (size_t)len ? s_carry_len : (size_t)len;
+        memcpy(data, s_carry, take);
+        memmove(s_carry, s_carry + take, s_carry_len - take);
+        s_carry_len -= take;
+        filled += take;
     }
+
+    while (filled < (size_t)len) {
+        size_t item_size = 0;
+        void *item = xRingbufferReceive(*rb_t, &item_size, 0);
+        if (item == NULL) break;
+
+        size_t need = (size_t)len - filled;
+        if (item_size <= need) {
+            memcpy(data + filled, item, item_size);
+            filled += item_size;
+        } else {
+            memcpy(data + filled, item, need);
+            size_t overflow = item_size - need;
+            memcpy(s_carry, (uint8_t *)item + need, overflow);
+            s_carry_len = overflow;
+            filled += need;
+        }
+        vRingbufferReturnItem(*rb_t, item);
+    }
+
+    if (filled < (size_t)len) memset(data + filled, 0, len - filled);
     return len;
 }
 
 /* ---------------------------------------------------------------------------
  * Device list helpers
  * -------------------------------------------------------------------------*/
-
-/** Convert a BD address to a heap-allocated "xx:xx:xx:xx:xx:xx" string.
- *  Caller owns the returned pointer. Returns NULL on allocation failure. */
 static char *bda_to_str_alloc(const esp_bd_addr_t bda)
 {
     char *buf = malloc(18);
@@ -89,7 +103,6 @@ static bool device_exists(const char *bda_str)
     return false;
 }
 
-/** Double the device array capacity. Returns true on success. */
 static bool grow_devices_array(void)
 {
     int          new_max = (*s.max_len) + 4;
@@ -103,13 +116,9 @@ static bool grow_devices_array(void)
     return true;
 }
 
-/** Append a new device to the list, growing it as needed.
- *  Takes ownership of both heap-allocated strings on success;
- *  frees them on failure. */
 static void append_device(char *bda_str, char *name)
 {
     if (device_exists(bda_str)) {
-        /* Duplicate – free the strings we were given and bail out. */
         free(bda_str);
         free(name);
         return;
@@ -135,7 +144,7 @@ static void append_device(char *bda_str, char *name)
 }
 
 /* ---------------------------------------------------------------------------
- * A2DP source callback
+ * A2DP callback
  * -------------------------------------------------------------------------*/
 static void a2dp_cb(esp_a2d_cb_event_t event, esp_a2d_cb_param_t *param)
 {
@@ -148,26 +157,20 @@ static void a2dp_cb(esp_a2d_cb_event_t event, esp_a2d_cb_param_t *param)
             ESP_LOGI(TAG_A2DP, "A2DP disconnected");
         }
         break;
-
     case ESP_A2D_AUDIO_STATE_EVT:
         ESP_LOGI(TAG_A2DP, "Audio state: %d", param->audio_stat.state);
         break;
-
     case ESP_A2D_AUDIO_CFG_EVT:
-        ESP_LOGI(TAG_A2DP, "Audio config event (informational)");
+        ESP_LOGI(TAG_A2DP, "Audio config event");
         break;
-
     default:
         break;
     }
 }
 
 /* ---------------------------------------------------------------------------
- * Classic BT helpers & GAP callback
+ * Classic BT GAP callback
  * -------------------------------------------------------------------------*/
-
-/** Extract the device name from EIR data (complete name, then short name).
- *  Returns a heap-allocated string or NULL. */
 static char *name_from_eir_alloc(uint8_t *eir)
 {
     if (!eir) return NULL;
@@ -176,15 +179,13 @@ static char *name_from_eir_alloc(uint8_t *eir)
     uint8_t *ptr = esp_bt_gap_resolve_eir_data(eir, ESP_BT_EIR_TYPE_CMPL_LOCAL_NAME, &len);
     if (!ptr)
         ptr = esp_bt_gap_resolve_eir_data(eir, ESP_BT_EIR_TYPE_SHORT_LOCAL_NAME, &len);
-    if (!ptr || len == 0)
-        return NULL;
+    if (!ptr || len == 0) return NULL;
 
     if (len > ESP_BT_GAP_MAX_BDNAME_LEN)
         len = ESP_BT_GAP_MAX_BDNAME_LEN;
     return strndup((char *)ptr, len);
 }
 
-/** Attempt auto-connect if the discovered EIR name matches the selected device. */
 static void try_autoconnect(const char *eir_name, const esp_bd_addr_t bda)
 {
     if (*s.selected == -1 || !eir_name) return;
@@ -205,43 +206,27 @@ static void bt_gap_callback(esp_bt_gap_cb_event_t event, esp_bt_gap_cb_param_t *
         char *bda_str = bda_to_str_alloc(param->disc_res.bda);
         if (!bda_str) break;
 
-        ESP_LOGI(TAG, "Classic BT device found: %s", bda_str);
-
+        ESP_LOGI(TAG, "Classic BT device: %s", bda_str);
         char *eir_name = NULL;
 
         for (int i = 0; i < param->disc_res.num_prop; i++) {
             esp_bt_gap_dev_prop_t *prop = &param->disc_res.prop[i];
-            switch (prop->type) {
-            case ESP_BT_GAP_DEV_PROP_BDNAME:
-                ESP_LOGI(TAG, "  Name: %s", (char *)prop->val);
-                break;
-            case ESP_BT_GAP_DEV_PROP_COD:
-                ESP_LOGI(TAG, "  CoD: 0x%" PRIx32, *(uint32_t *)prop->val);
-                break;
-            case ESP_BT_GAP_DEV_PROP_RSSI:
-                ESP_LOGI(TAG, "  RSSI: %d dBm", *(int8_t *)prop->val);
-                break;
-            case ESP_BT_GAP_DEV_PROP_EIR:
-                free(eir_name); /* drop earlier value if EIR seen twice */
+            if (prop->type == ESP_BT_GAP_DEV_PROP_EIR) {
+                free(eir_name);
                 eir_name = name_from_eir_alloc(prop->val);
-                if (eir_name) ESP_LOGI(TAG, "  EIR Name: %s", eir_name);
+                if (eir_name) ESP_LOGI(TAG, "  Name: %s", eir_name);
                 try_autoconnect(eir_name, param->disc_res.bda);
-                break;
-            default:
-                break;
             }
         }
 
         append_device(bda_str, eir_name);
         break;
     }
-
     case ESP_BT_GAP_DISC_STATE_CHANGED_EVT:
-        ESP_LOGI(TAG, "Classic BT discovery %s",
+        ESP_LOGI(TAG, "Discovery %s",
                  param->disc_st_chg.state == ESP_BT_GAP_DISCOVERY_STARTED
                      ? "STARTED" : "STOPPED");
         break;
-
     default:
         ESP_LOGI(TAG, "Unhandled GAP event: %d", event);
         break;
@@ -249,85 +234,24 @@ static void bt_gap_callback(esp_bt_gap_cb_event_t event, esp_bt_gap_cb_param_t *
 }
 
 /* ---------------------------------------------------------------------------
- * BLE scanning
- * -------------------------------------------------------------------------*/
-
-static void ble_gap_callback(esp_gap_ble_cb_event_t event, esp_ble_gap_cb_param_t *param)
-{
-    switch (event) {
-    case ESP_GAP_BLE_SCAN_PARAM_SET_COMPLETE_EVT:
-        if (param->scan_param_cmpl.status == ESP_BT_STATUS_SUCCESS) {
-            esp_ble_gap_start_scanning(10);
-        } else {
-            ESP_LOGE(TAG, "BLE scan param set failed: %d", param->scan_param_cmpl.status);
-        }
-        break;
-
-    case ESP_GAP_BLE_SCAN_RESULT_EVT: {
-        if (param->scan_rst.search_evt != ESP_GAP_SEARCH_INQ_RES_EVT) break;
-
-        char *bda_str = bda_to_str_alloc(param->scan_rst.bda);
-        if (!bda_str) break;
-
-        ESP_LOGI(TAG, "BLE device: %s  RSSI: %d", bda_str, param->scan_rst.rssi);
-
-        uint8_t  name_len = 0;
-        uint8_t *name_ptr = esp_ble_resolve_adv_data(
-            param->scan_rst.ble_adv, ESP_BLE_AD_TYPE_NAME_CMPL, &name_len);
-
-        char *name = (name_ptr && name_len > 0)
-                         ? strndup((char *)name_ptr, name_len)
-                         : NULL;
-        if (name) ESP_LOGI(TAG, "  Name: %s", name);
-
-        append_device(bda_str, name);
-        break;
-    }
-
-    default:
-        break;
-    }
-}
-
-static void start_ble_scan(void)
-{
-    static bool callback_registered = false;
-    if (!callback_registered) {
-        esp_ble_gap_register_callback(ble_gap_callback);
-        callback_registered = true;
-    }
-
-    esp_ble_scan_params_t scan_params = {
-        .scan_type          = BLE_SCAN_TYPE_ACTIVE,
-        .own_addr_type      = BLE_ADDR_TYPE_PUBLIC,
-        .scan_filter_policy = BLE_SCAN_FILTER_ALLOW_ALL,
-        .scan_interval      = 0x50,
-        .scan_window        = 0x30,
-        .scan_duplicate     = BLE_SCAN_DUPLICATE_DISABLE,
-    };
-    esp_ble_gap_set_scan_params(&scan_params);
-}
-
-/* ---------------------------------------------------------------------------
  * Public API
  * -------------------------------------------------------------------------*/
-
 void disconnect(void)
 {
     esp_a2d_source_disconnect(s.peer);
 }
 
 void init_bt(bt_device_t ***arr, int *arr_max_len, int *arr_len,
-             int *selected_dv, bool *connected)
+             int *selected_dv, bool *connected, bool *paused, RingbufHandle_t *r)
 {
-    /* Bind module state to the caller's variables. */
     s.array    = arr;
     s.max_len  = arr_max_len;
     s.len      = arr_len;
     s.selected = selected_dv;
     s.connected = connected;
+    s.paused   = paused;
+    rb_t       = r;
 
-    /* NVS – required by the BT stack. */
     esp_err_t ret = nvs_flash_init();
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
         ESP_ERROR_CHECK(nvs_flash_erase());
@@ -335,23 +259,16 @@ void init_bt(bt_device_t ***arr, int *arr_max_len, int *arr_len,
     }
     ESP_ERROR_CHECK(ret);
 
-    /* BT controller (BTDM = Classic + BLE). */
     esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
     ESP_ERROR_CHECK(esp_bt_controller_init(&bt_cfg));
-    ESP_ERROR_CHECK(esp_bt_controller_enable(ESP_BT_MODE_BTDM));
-
-    /* Bluedroid host stack. */
+    ESP_ERROR_CHECK(esp_bt_controller_enable(ESP_BT_MODE_CLASSIC_BT)); // ← Classic only
     ESP_ERROR_CHECK(esp_bluedroid_init());
     ESP_ERROR_CHECK(esp_bluedroid_enable());
 
-    /* Callbacks & A2DP source setup. */
     ESP_ERROR_CHECK(esp_bt_gap_register_callback(bt_gap_callback));
     ESP_ERROR_CHECK(esp_a2d_register_callback(a2dp_cb));
     ESP_ERROR_CHECK(esp_a2d_source_register_data_callback(bt_audio_data_cb));
     ESP_ERROR_CHECK(esp_a2d_source_init());
-
-    sine_table_init();
-    start_ble_scan();
 
     esp_bt_gap_set_device_name("ESP32-Scanner");
     esp_bt_gap_set_scan_mode(ESP_BT_NON_CONNECTABLE, ESP_BT_NON_DISCOVERABLE);
@@ -359,7 +276,5 @@ void init_bt(bt_device_t ***arr, int *arr_max_len, int *arr_len,
 
 void scan_refresh(void)
 {
-    esp_ble_gap_stop_scanning();
-    start_ble_scan();
     esp_bt_gap_start_discovery(ESP_BT_INQ_MODE_GENERAL_INQUIRY, 10, 0);
 }

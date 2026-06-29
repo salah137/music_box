@@ -1,0 +1,15 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/__idf_esp_hal_uart.dir/esp32/uart_periph.c.obj"
+  "CMakeFiles/__idf_esp_hal_uart.dir/esp32/uart_periph.c.obj.d"
+  "CMakeFiles/__idf_esp_hal_uart.dir/uart_hal.c.obj"
+  "CMakeFiles/__idf_esp_hal_uart.dir/uart_hal.c.obj.d"
+  "CMakeFiles/__idf_esp_hal_uart.dir/uart_hal_iram.c.obj"
+  "CMakeFiles/__idf_esp_hal_uart.dir/uart_hal_iram.c.obj.d"
+  "libesp_hal_uart.a"
+  "libesp_hal_uart.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/__idf_esp_hal_uart.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
